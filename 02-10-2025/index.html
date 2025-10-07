@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        body {
+            background-color: black;    
+            color: white;
+        }
+        
+        h1 {
+            color: blue;
+        }
+
+        dialog::backdrop {
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .herencia {  /*0 0 1 1*/
+            background-color: red;
+            color: white;
+            width: 300px;
+            font-size: 10px;
+            p.uno {
+                font-size: 3rem;
+                background-color: blue;
+            }
+
+            p.dos {
+                font-size: 3em;
+                background-color: green;
+            }
+             span { /*0 0 0 1*/
+                font-size: 0.5em;
+            }
+
+            p { /*0 0 0 1*/
+                font-size: 5em;
+            }
+
+           
+        }
+    </style>
+</head>
+<body>
+   <div>
+    <pre>
+        <style contenteditable>
+            body {
+            background-color: black;    
+            color: white;
+        }
+        
+        h1 {
+            color: blue;
+        }
+        </style>
+    </pre>
+   </div>
+
+    <!--ANCHORS-->
+    <a href="./otro.html" target="_blank">Ir a pagina principal de facebook</a>
+    <a href="./otro.html">Ir a otra pagina</a>
+    <a href="tel:+525513044563">LLAMAR A ALDO</a>
+    <a href="mailto:dev.aldo.aldaco@gmail.com">MANDAR MAIL A ALDO</a>
+    <a href="#title">Ir a la seccion</a>
+
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate rem hic, beatae porro consequuntur perspiciatis ipsum nam esse amet laudantium dicta explicabo. Delectus exercitationem a obcaecati repellat, quibusdam laborum reprehenderit.</p>
+    <p>Iure animi itaque explicabo a, velit voluptas repellendus minus nobis, iste omnis et unde ullam magni veniam. Non natus deserunt laborum a. Aliquam eveniet quidem, labore enim autem voluptate magnam.</p>
+    <p>Consectetur iste, eius magnam reprehenderit exercitationem numquam in corporis rerum qui assumenda porro alias natus odio? Assumenda nemo magnam, omnis rerum aliquid rem vel consectetur quaerat, nisi ipsam sapiente corrupti.</p>
+    <p>Praesentium aspernatur omnis itaque odio illum. Earum qui sint dolorum mollitia! Quibusdam saepe voluptate quasi vero, esse perspiciatis fugit quas ad voluptas eaque? Cumque vel molestias mollitia minima officiis quisquam.</p>
+    <p>Voluptatibus vitae eveniet eum numquam dolor voluptates alias quas, sequi nisi eaque nostrum ipsa vel earum assumenda nihil reiciendis eos expedita. Pariatur illo et omnis architecto eveniet ab in repellat.</p>
+    <p>Itaque dolor, esse sit at voluptatem quibusdam odio hic repellendus soluta, aliquid rem ipsam, enim natus illum ad necessitatibus. Incidunt officia voluptatum perspiciatis iure ex atque placeat hic doloremque dolorem.</p>
+
+    <h1 id="title">TITULO</h1>
+
+    <!--IMAGES-->
+    <img src="https://placehold.co/600x400" alt="size of image getted of the url" width="200" height="200">
+
+    <section style="background-color: black;width: 100%;height: 300px;background-image: url('https://placehold.co/600x400');"></section>
+
+    <!--atributos generales: id, class, style, width, height-->
+
+
+    <!--TABLES-->
+    <table border="1" cellpadding="5" cellspacing="2">
+        <tr>
+            <th>Nombre Alumno</th>
+            <th>Calificacion Alumnos</th>
+        </tr>
+        <tr>
+            <td colspan="3">Aldo</td>
+            <td>10</td>
+        </tr>
+    </table>
+
+
+    <!--FORMS-->
+    <form id="f">
+        <h1 style="color: red;">HTML</h1>
+        <input placeholder="Texto plano" type="text" name="userName" value="ALDO ALDACO CONTRERAS">
+        <input type="email" name="email">
+        <input type="date" name="birth">
+
+        <input type="range"  min="0" max="100" step="10" value="50">
+        <input type="hidden" name="idUsuario" value="1234">
+        <button onevent>CLICK</button>
+        <input type="submit" value="OTRO CLICK">
+
+        <fieldset>
+            <legend>Informacion personal</legend>
+            <input type="email" name="email" id="email">
+            <input type="text" name="name" id="name">
+            <input type="text" name="lastname" id="lastname">
+        </fieldset>
+
+        <fieldset>
+            <legend>Informacion economica</legend>
+            <label for="salary">Salary</label>
+            <input type="number" name="salary" id="salary">
+            <input type="text" name="ocupacion" id="ocupacion">
+        </fieldset>
+    </form>
+
+    <video src="video.mp4" controls autoplay loop muted></video>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/j7gCCa0WR_E?si=j9s1urPeFcdF9Sta" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <audio src="sonido.mp3" controls autoplay loop muted></audio>
+
+    <figure>
+        <img src="https://placehold.co/600x400" alt="Descr5ipcion de la imagen">
+        <figcaption>Imagen I. Descr5ipcion de la imagen</figcaption>
+    </figure>
+
+    <mark>
+        Snnipet de codigo
+    </mark>
+
+    <progress value="70" max="100"></progress>
+
+
+    <meter value="0.7" min="0" max="1"></meter>
+
+    <time datetime="2025-10-06">2025-10-06</time>
+
+    <details>
+        <summary>Title </summary>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi perferendis libero iste cumque vero, ipsa in repellendus, commodi beatae nisi consectetur veritatis molestias vitae qui, eaque error. Quisquam, officiis mollitia!
+    </details>
+
+    <dialog>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam error voluptatem numquam optio ad beatae quae quasi eius nam praesentium temporibus, quo ut unde corporis quia saepe earum repudiandae expedita!
+    </dialog>
+
+    <input type="text" id="inputPredictivo" list="animals">
+    <datalist id="animals">
+        <option value="caballo">Caballo</option>
+        <option value="rata">Rata</option>
+        <option value="perro">Perro</option>
+    </datalist>
+
+    <div class="herencia">
+        <p class="uno">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, est laudantium aliquam, vero fugiat totam provident nobis dolor, at ducimus minus porro! Nam quasi perspiciatis, impedit veritatis repudiandae nesciunt nostrum.</p>
+        <p class="dos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, est laudantium aliquam, vero fugiat totam provident nobis dolor, at ducimus minus porro! Nam quasi perspiciatis, impedit veritatis repudiandae nesciunt nostrum.</p>
+    </div>
+
+    <script>
+        const button = document.querySelector('form > button');
+        button.addEventListener('click', clickDetected);
+        function clickDetected(evento) {
+            evento.preventDefault();
+            console.log(evento);
+        }
+    </script>
+</body>
+</html>
