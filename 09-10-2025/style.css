@@ -1,0 +1,40 @@
+:root, :host {
+    font-size: 20px;
+    --my-custom-color: var(--color-red, black);
+}
+
+p {
+    font-size: 2rem;
+    background-color: red;
+    color: unset;
+}
+
+p::before {
+    content: '"';
+    background-color: green;
+}
+
+p::after {
+    content: '"';
+    background-color: blue;
+}
+
+p::first-line {
+    background-color: var(--my-custom-color);
+    text-decoration:underline;
+}
+
+
+body {
+    font-family:'Times New Roman', Times, serif; /* fallback values */
+    font-size: 1em;
+    font-weight: bold;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 3rem;
+    text-shadow: ;
+    background-color: rgba(0,0,0,0.5);
+    background: scroll url('./palmera.jpg') center no-repeat; /*short hand*/
+    color: white;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                border: none;
+                padding: 0;
+                color: red;
+            }
+
+            div {
+                margin: 2rem;
+                font-size: 2rem; /*2rem*/
+            }
+
+            span {
+                margin: unset; /*2rem*/
+                font-size: unset; /*2rem*/
+            }
+
+            /*selector de elemento*/
+            h1 {
+                color: black;
+            }
+
+            /*selector de id*/
+            #textoResaltado {
+                color: aquamarine;
+            }
+
+            /*selector de clase*/
+            .texto-blue { /*0 0 1 0*/
+                color: blue;
+            }
+
+            .texto-bonito { /*0 0 1 0*/
+                color: violet;
+                font-size: 2rem;
+                font-weight: 900;
+            }
+
+            /* '>',' ',',', '+', '~' */
+            /*Hijos directos*/
+            div > h1 {  /*0 0 0 1*/ + /*0 0 0 1*/ = /*0 0 0 2*/
+                color: blueviolet;
+            }
+
+            /*Descendientes*/
+            div h1 {
+                color: green;
+            }
+
+            article[type="warning"] {
+                background-color: orange;
+                color: white;
+            }
+
+            article[type="success"] {
+                background-color: green;
+                color: white;
+            }
+
+            article[type~="error"] {
+                background-color: red;
+                color: white;
+            }
+
+            /*:hover, :active, :focus, :nth-child()*/
+            div:hover {
+                background-color: aquamarine;
+            }
+
+            button:active {
+                background-color: blue;
+            }
+
+            .m-t {
+                margin-top: 5rem;
+            }
+
+            .m-b {
+                margin-bottom: 5rem;
+            }
+
+            input:focus {
+                background-color: black;
+                color:white;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1 id="otroTexto">CSS</h1>
+            <section>
+                <h1 id="otroTexto">CSS</h1>    
+            </section>
+            <p id="textoResaltado">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, porro saepe! Nulla repudiandae nisi, hic suscipit quis culpa numquam adipisci amet officiis nam dolorum laborum sint error ea esse labore.</p>
+            <span>Otro texto</span>
+            <p class="texto-blue texto-bonito">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, porro saepe! Nulla repudiandae nisi, hic suscipit quis culpa numquam adipisci amet officiis nam dolorum laborum sint error ea esse labore.</p>
+            <p class="texto-blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, porro saepe! Nulla repudiandae nisi, hic suscipit quis culpa numquam adipisci amet officiis nam dolorum laborum sint error ea esse labore.</p>
+            <p id="textoResaltado">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, porro saepe! Nulla repudiandae nisi, hic suscipit quis culpa numquam adipisci amet officiis nam dolorum laborum sint error ea esse labore.</p>
+        </div>
+
+        <article type="otro error">
+            Error
+        </article>
+        <article type="warning">
+            Ten cuidado
+        </article>
+        <article type="success">
+            Contrataste una TDC
+        </article>
+
+        <button>click me</button>
+        <section class="m-t m-b">
+            <input type="text" placeholder="Escribe algo aqui">
+        </section>
+
+    </body>
+</html>
