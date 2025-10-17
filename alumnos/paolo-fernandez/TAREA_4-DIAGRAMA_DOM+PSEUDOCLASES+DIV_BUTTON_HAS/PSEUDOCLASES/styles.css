@@ -1,0 +1,191 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #0F172A;
+  color: #F5F5F5;
+}
+
+section {
+  background-color: #1E293B;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  color: #FDFDFD;
+  border-bottom: 2px solid #2196f3;
+  padding-bottom: 10px;
+}
+
+/* 1. :hover */
+.hover-demo {
+  padding: 10px;
+  background: #E3F2FD;
+  border-radius: 4px;
+  transition: all 0.5s;
+  color: #333333;
+}
+
+.hover-demo:hover {
+  background: #2196f3;
+  color: #FFFFFF;
+  transform: scale(1.05);
+}
+
+/* 2. :active */
+.active-demo {
+  padding: 10px;
+  background: #FFF3E0;
+  border-radius: 4px;
+  color: #333333;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s;
+}
+
+.active-demo:active {
+  background: #FF9800;
+  color: #FFFFFF;
+}
+
+/* 3. :focus */
+.focus-demo {
+  padding: 10px;
+  border: 2px solid #DDDDDD;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.focus-demo:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+.list-demo li, .numbers li {
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 4px;
+}
+
+/* 4. :first-child */
+.list-demo li:first-child {
+  background: #F8C3CB;
+  color: #333333;
+  font-weight: bold;
+}
+
+/* 5. :last-child */
+.list-demo li:last-child {
+  background: #E8F5E9;
+  color: #333333;
+  font-style: italic;
+}
+
+/* 6. :nth-child(even) */
+.numbers li:nth-child(odd) {
+  background: #F5F5F5;
+  color: #333333;
+}
+
+/* 7. :nth-child(n) */
+.numbers li:nth-child(3n) {
+  color: #E91E63;
+  font-weight: bold;
+}
+
+/* 8. :nth-last-child(#) */
+.numbers li:nth-last-child(2) {
+  border: 2px solid #9C27B0;
+}
+
+/* 9. :first-of-type -> Primer elemento de su tipo */
+.mixed p:first-of-type {
+  color: #00BCD4;
+  font-weight: bold;
+}
+
+/* 10. :last-of-type -> Último elemento de su tipo */
+.mixed p:last-of-type {
+  color: #FF5722;
+  font-style: italic;
+}
+
+/* 11. :nth-of-type(#) -> Elemento en el índice # de su tipo */
+.mixed p:nth-of-type(2) {
+  background-color: #FFF9C4;
+  color: #333333;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+/* 12. :not() -> Exclusión */
+.buttons button:not(.special) {
+  background: #9E9E9E;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.buttons button.special {
+  background: #673AB7;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* 13. :disabled */
+.disabled-demo {
+  padding: 10px;
+  border: 2px solid #DDDDDD;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.disabled-demo:disabled {
+  background: #F5F5F5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 14. :checked */
+.checked-demo input[type="checkbox"]:checked + label {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+/* 15. :empty */
+.boxes div {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #DDDDDD;
+  margin: 5px;
+}
+
+.boxes div:empty {
+  background: #F8C3CB;
+  border-color: #F44336;
+}
+
+.boxes div:not(:empty) {
+  background: #C8E6C9;
+  border-color: #4CAF50;
+  color: #333333;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

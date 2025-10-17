@@ -1,0 +1,94 @@
+:root {
+  --border-radius: 15px;
+  --demo-box-height: 80px;
+}
+
+body {
+  margin: 0 auto;
+  background-color: #0F172A;
+  color: #FFF;
+  padding: 40px 100px;
+  width: 800px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  margin-bottom: 50px;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+}
+
+.linear-gradient-demo {
+  background-color: #1E293B;
+  padding: 30px 40px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.linear-gradient-demo h2 {
+  margin: 0;
+}
+
+.linear-gradient-demo h3 {
+  margin: 0;
+  margin-top: 5px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.linear-gradient-demo > div:first-of-type {
+  margin-bottom: 30px;
+}
+
+.linear-gradient-demo > div:last-of-type {
+  width: 100%;
+  height: var(--demo-box-height);
+  border-radius: var(--border-radius);
+}
+
+/* SINTAXIS BÁSICA::after
+  background: linear-gradient(dirección, color1, color2, ...);
+*/
+
+.linear-gradient-demo:first-of-type > div:last-of-type {
+  background: linear-gradient(#FF6B6B, #4ECDC4);
+}
+
+.linear-gradient-demo:nth-of-type(2) > div:last-of-type {
+  background: linear-gradient(to right, #FF6B6B, #4ECDC4);
+}
+
+.linear-gradient-demo:nth-of-type(3) > div:last-of-type {
+  background: linear-gradient(to bottom right, #FF6B6B, #4ECDC4);
+}
+
+.linear-gradient-demo:nth-of-type(4) > div:last-of-type {
+  /* 0deg = arriba, 90deg = derecha, 180deg = abajo, 270deg = izquierda */
+  background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+}
+
+.linear-gradient-demo:nth-of-type(5) > div:last-of-type {
+  background: linear-gradient(to right, #FF6B6B, #FECA57, #48DBFB, #FF9FF3);
+}
+
+.linear-gradient-demo:nth-of-type(6) > div:last-of-type {
+  background: linear-gradient(to right, 
+    #FF6B6B 0%, 
+    #4ECDC4 50%, 
+    #FECA57 100%
+  );
+}
+
+.linear-gradient-demo:nth-of-type(7) > div:last-of-type {
+  background: linear-gradient(to right, #FF6B6B, #FECA57, #48DBFB, #FF9FF3);
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: 3rem;
+  text-align: center;
+}

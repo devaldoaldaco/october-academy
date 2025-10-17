@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google | Página principal</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Gmail</a>
+        </li>
+        <li>
+          <a href="#">Imágenes</a>
+        </li>
+        <li>
+          <img src="assets/icons/menu.svg" width="24" height="24" alt="Menú">
+        </li>
+        <li>
+          <img src="assets/img/profile_img.png" alt="Foto de perfil del usuario">
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <img id="logo" src="assets/icons/google_logo.svg" alt="Logo de Google">
+
+    <div id="container-search">
+      <input 
+        type="search" 
+        name="query" 
+        id="query"
+        list="last-searches"
+        placeholder="Buscar en Google o escribir una URL"
+      >
+
+      <datalist id="last-searches">
+        <option value="Gmail">
+        <option value="Aula Virtual">
+        <option value="YouTube">
+        <option value="Chrome Web">
+        <option value="wall street">
+        <option value="la luna llena">
+        <option value="feriados calendario octubre">
+        <option value="cometa 3i atlas nasa">
+      </datalist>
+
+      <img src="assets/icons/search.svg" alt="Icono de búsqueda">
+      <img src="assets/icons/microphone.svg" alt="Icono de micrófono">
+      <img src="assets/icons/camera.svg" alt="Icono de cámara">
+    </div>
+
+    <ul>
+      <li>
+        <a href="#">
+          <div>
+            <img src="assets/icons/gmail.png" alt="Icono de Gmail">
+          </div>
+          <p>Recibidos</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div>
+            <img src="assets/icons/untels.png" alt="Icono de Untels">
+          </div>
+          <p>Aula Virtual</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div>
+            <img src="assets/icons/youtube.png" alt="Icono de YouTube">
+          </div>
+          <p>YouTube</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div>
+            <img src="assets/icons/chrome_web_store.png" alt="Icono de Chrome Web Store">
+          </div>
+          <p>Chrome Web...</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <div>
+            <img src="assets/icons/add.svg" alt="Icono agregar">
+          </div>
+          <p>Añadir acces...</p>
+        </a>
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    <a href="#">
+      <img src="assets/icons/link.svg" alt="Icono de enlace">
+      <span>Foto de Ev Tchebotarev</span>
+    </a>
+
+    <img src="assets/icons/edit.svg" alt="">
+  </footer>
+</body>
+</html>

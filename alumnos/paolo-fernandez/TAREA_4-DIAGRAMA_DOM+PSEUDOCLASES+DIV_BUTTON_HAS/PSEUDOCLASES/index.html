@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplos de pseudo-clases CSS</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Ejemplos de uso de pseudo-clases de CSS</h1>
+
+  <section>
+    <h2>1. :hover</h2>
+    <div class="hover-demo">
+      Pasa el cursor por aquí
+    </div>
+  </section>
+
+  <section>
+    <h2>2. :active</h2>
+    <div class="active-demo">
+      Haz click aquí y mantén presionado
+    </div>
+  </section>
+
+  <section>
+    <h2>3. :focus</h2>
+    <input type="text" class="focus-demo" placeholder="Haz click aquí">
+  </section>
+
+  <section>
+    <h2>4-5. :first-child y :last-child</h2>
+    <ul class="list-demo">
+      <li>Primer elemento</li>
+      <li>Elemento normal</li>
+      <li>Elemento normal</li>
+      <li>Último elemento</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6-8. Variaciones de :nth-child()</h2>
+    <ul class="numbers">
+      <li>1 - Impar</li>
+      <li>2 - Par</li>
+      <li>3 - Múltiplo de 3 e Impar</li>
+      <li>4 - Par</li>
+      <li>5 - Impar</li>
+      <li>6 - Múltiplo de 3 y Par</li>
+      <li>7 - Impar</li>
+      <li>8 - Segundo desde el final (descendente) y Par</li>
+      <li>9 - Múltiplo de 3 e Impar</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>9-11. :first-of-type, :last-of-type, :nth-of-type()</h2>
+    <div class="mixed">
+      <p>Primer párrafo</p>
+      <div>Un div</div>
+      <p>Segundo párrafo</p>
+      <p>Tercer párrafo</p>
+      <div>Otro div</div>
+      <p>Último párrafo</p>
+      <div>Otro div</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>12. :not()</h2>
+    <div class="buttons">
+      <button>Botón normal</button>
+      <button>Botón normal</button>
+      <button class="special">Botón especial</button>
+      <button>Botón normal</button>
+    </div>
+  </section>
+
+  <section>
+    <h2>13. :disabled</h2>
+    <input type="text" class="disabled-demo" placeholder="Input normal">
+    <input type="text" class="disabled-demo" placeholder="Input deshabilitado" disabled>
+  </section>
+
+  <section>
+    <h2>14. :checked</h2>
+    <div class="checked-demo">
+      <input type="checkbox" id="cb1">
+      <label for="cb1">Opción 1</label>
+      <input type="checkbox" id="cb2">
+      <label for="cb2">Opción 2</label>
+      <input type="checkbox" id="cb3">
+      <label for="cb3">Opción 3</label>
+    </div>
+  </section>
+
+  <section>
+    <h2>15. :empty</h2>
+    <div class="boxes">
+      <div></div>
+      <div>Contenido</div>
+      <div></div>
+      <div>Contenido</div>
+    </div>
+  </section>
+</body>
+</html>

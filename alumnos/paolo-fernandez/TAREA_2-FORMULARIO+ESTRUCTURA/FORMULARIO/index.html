@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco Lagarto | Solicitud de Crédito Simple</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>BANCO LAGARTO</h1>
+
+    <h2>
+      Solicitud de Crédito Simple | <span id="progress-percentage"></span>%
+    </h2>
+  </header>
+
+  <main>
+    <div id="progress"></div>
+    
+    <form id="main-form" action="procesar.php" method="post">
+      <fieldset data-step-number="1">
+        <legend>
+          Monto y Plazo
+        </legend>
+
+        <div class="first-input">
+          <label for="amount">Monto solicitado:</label>
+          <input 
+            type="number" 
+            name="amount" 
+            id="amount"
+            placeholder="S/ 0.00"
+            min="1000"
+            max="100000"
+            step="100"
+            required  
+          >
+        </div>
+
+        <div>
+          <label for="term">Plazo en meses:</label>
+          <select id="term" name="term" required>
+            <option value="">-- Seleccione un plazo --</option>
+            <option value="6">6 meses</option>
+            <option value="12">12 meses</option>
+            <option value="18">18 meses</option>
+            <option value="24">24 meses</option>
+            <option value="36">36 meses</option>
+          </select>
+        </div>
+      </fieldset>
+      
+      <fieldset data-step-number="2">
+        <legend>
+          Datos Personales
+        </legend>
+
+        <div class="first-input">
+          <label for="full-name">Nombre completo:</label>
+          <input 
+            type="text" 
+            name="full-name" 
+            id="full-name"
+            required  
+          >
+        </div>
+
+        <div>
+          <label for="dni">N° de DNI:</label>
+          <input 
+            type="text" 
+            name="dni" 
+            id="dni"
+            required  
+          >
+        </div>
+
+        <div>
+          <label for="birth-date">Fecha de nacimiento:</label>
+          <input 
+            type="date" 
+            name="birth-date" 
+            id="birth-date"
+            required  
+          >
+        </div>
+
+        <div>
+          <label for="gender">Género:</label>
+          <select id="gender" name="gender" required>
+            <option value="">-- Seleccione su género --</option>
+            <option value="male">Masculino</option>
+            <option value="female">Femenino</option>
+            <option value="other">Otro / Prefiero no decir</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="phone-number">N° de celular:</label>
+          <input 
+            type="text" 
+            name="phone-number" 
+            id="phone-number"
+            required  
+          >
+        </div>
+
+        <div>
+          <label for="email">Correo:</label>
+          <input 
+            type="email" 
+            name="email" 
+            id="email"
+            placeholder="Ej: banco.lagarto@gmail.com"
+            required  
+          >
+        </div>
+
+        <div>
+          <label for="full-address">Dirección completa:</label>
+          <input 
+            type="text" 
+            name="full-address" 
+            id="full-address"
+            placeholder="Ej: P. Sherman Calle Wallaby 42 Sidney"
+            required  
+          >
+        </div>
+      </fieldset>
+      
+      <fieldset data-step-number="3">
+        <legend>
+          Información Laboral
+        </legend>
+
+        <div class="first-input">
+          <label for="employment-status">Situación laboral:</label>
+          <select id="employment-status" name="employment-status" required>
+            <option value="">-- Seleccione su situación laboral --</option>
+            <option value="employed">Empleado dependiente</option>
+            <option value="self-employed">Independiente</option>
+            <option value="retired">Pensionado</option>
+            <option value="unemployed">Desempleado</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="company-name">Nombre de la empresa o negocio:</label>
+          <input 
+            type="text" 
+            name="company-name" 
+            id="company-name"
+            placeholder="Ej: Banco Lagarto S.A."
+            required  
+          >
+        </div>
+
+        <div>
+          <label for="position">Cargo / ocupación:</label>
+          <input 
+            type="text" 
+            name="position" 
+            id="position"
+            placeholder="Ej: Desarrollador Senior"
+            required  
+          >
+        </div>
+
+        <div>
+          <label for="monthly-income">Ingreso mensual neto:</label>
+          <input 
+            type="number" 
+            name="monthly-income" 
+            id="monthly-income"
+            placeholder="S/ 0.00"
+            step="100"
+            required  
+          >
+        </div>
+
+        <div>
+          <label for="seniority">Antigüedad laboral:</label>
+          <select id="seniority" name="seniority" required>
+            <option value="">-- Seleccione su antigüedad laboral --</option>
+            <option value="less-than-1">Menos de un año</option>
+            <option value="1-to-3">Entre 1 a 3 años</option>
+            <option value="3-to-5">Entre 3 a 5 años</option>
+            <option value="more-than-5">Más de 5 años</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset id="last-step" data-step-number="4">
+        <legend>
+          Confirmación y Términos
+        </legend>
+
+        <div class="first-input">
+          <label for="terms-accepted">
+            <p>
+              Acepto los <a href="#" target="_blank">Términos y Condiciones</a>
+            </p>
+
+            <input 
+              type="checkbox" 
+              name="terms-accepted" 
+              id="terms-accepted"
+              required
+            >
+          </label>
+        </div>
+
+        <div>
+          <label for="privacy-accepted">
+            <p>
+              Acepto la <a href="#" target="_blank">Política de Privacidad</a>
+            </p>
+
+            <input 
+              type="checkbox" 
+              name="privacy-accepted" 
+              id="privacy-accepted"
+              required
+            >
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="container-buttons">
+        <button type="button" id="btn-next">Siguiente</button>
+        <button type="submit" id="btn-confirm">Confirmar</button>
+      </div>
+    </form>
+
+    <div id="container-finish">
+      <h2>Solicitud de Crédito Simple enviada</h2>
+      <h3>¡Gracias por su preferencia!</h3>
+    </div>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+body {
+  margin: 0;
+  padding-top: 50px;
+  background-color: #0f172a;
+  color: #e0f2fe;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  margin: 0 100px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 3em;
+}
+
+header h2 {
+  font-size: 1.8em;
+  margin-bottom: 0;
+}
+
+main {
+  margin-top: 50px;
+}
+
+main form {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #1e293b;
+  padding: 40px 50px;
+}
+
+#container-finish {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #1e293b;
+  padding: 40px 50px;
+  text-align: center;
+  display: none;
+}
+
+form fieldset {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 0;
+  border: 0;
+}
+
+fieldset div {
+  width: 100%;
+  display: flex;
+}
+
+fieldset legend {
+  font-size: 1.5em;
+  font-weight: bold;
+  width: 100%;
+  padding-bottom: 2px;
+}
+
+fieldset label {
+  font-size: 1.2em;
+  width: 180px;
+  display: inline-block;
+}
+
+fieldset input {
+  height: 25px;
+  flex: 1;
+  border: 1px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+fieldset select {
+  height: 25px;
+  flex: 1;
+}
+
+.first-input {
+  margin-top: 40px;
+}
+
+.container-buttons {
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  color: #FFF;
+  border: none;
+  padding: 10px 25px;
+  width: 300px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+#btn-back {
+  background-color: #3f3f46;
+}
+
+#btn-confirm {
+  background-color: #2563eb;
+}
+
+#btn-next {
+  background-color: #3b82f6;
+}
+
+#progress {
+  margin-left: calc(50% - 350px);
+  width: 0;
+  border-top: 4px solid #3b82f6;
+}
+
+a {
+  color: #4f46e5;
+}
+
+#last-step label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#last-step input {
+  width: 60px;
+  flex: none;
+  margin: auto 0;
+}
