@@ -1,0 +1,262 @@
+:root {
+  --card-color: rgba(220, 220, 220, 0.3);
+  --items-color: rgb(2, 100, 100);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Estilos Generales*/
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  background-color: rgb(1, 71, 71);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*Estilos para íconos*/
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  cursor: pointer;
+}
+
+header {
+  flex: 1;
+}
+
+/*Estilos dentro de contenedor header*/
+
+.navigation ul {
+  display: flex;
+  flex-direction: row;
+  justify-self: end;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  color: white;
+  font-weight: 500;
+  font-size: small;
+}
+
+.navigation .item_perfil {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: brown;
+  padding: 0px 2px 7px 0px;
+  font-weight: normal;
+  font-size: x-large;
+}
+
+/*Estilos dentro de contenedor header*/
+main {
+  flex: 3;
+}
+
+article {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+/*Estilos dentro de contenedor article*/
+h1 {
+  position: relative;
+  font-size: 89px;
+  font-weight: 600;
+  color: rgb(6, 194, 194);
+  letter-spacing: -5px;
+}
+
+h1 .letter-large {
+  font-size: 1.1em;
+}
+
+h1 .letter-e {
+  position: absolute;
+  bottom: 0px;
+  right: -38px;
+  transform: rotate(-20deg);
+}
+
+/*Seccion buscador y accesos*/
+article section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 50%;
+}
+
+/*Estilos para buscador - datalist*/
+.searcher {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.searcher span,
+.searcher_complements {
+  position: absolute;
+  color: #9aa0a6;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.searcher .searcher_search {
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#recordInput {
+  width: 100%;
+  padding: 16px 85px 16px 55px;
+  border: 1px solid white;
+  border-radius: 24px;
+  outline: none;
+  transition: all 0.2s;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.08);
+  font-size: 14px;
+}
+
+#recordInput:hover {
+  border-color: rgba(223, 225, 229, 0);
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+#recordInput:focus {
+  border-color: rgba(223, 225, 229, 0);
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+.searcher .searcher_complements {
+  top: 25%;
+  width: 12%;
+  height: 20%;
+  right: 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+/*Estilos para accesos*/
+section .access {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  color: white;
+}
+
+section .access img {
+  width: 24px;
+  height: 24px;
+}
+
+section .access .access_item {
+  position: relative;
+  display: flex;
+  border-radius: 7px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  padding: 20px 20px;
+  cursor: pointer;
+  gap: 10px;
+}
+
+section .access .access_item:hover {
+  background-color: var(--card-color);
+}
+
+.access_item .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.item.item_icon {
+  background-color: #4a5d6c;
+}
+
+.item.item_add {
+  font-size: xx-large;
+  padding-bottom: 8px;
+  background-color: var(--items-color);
+}
+
+.item .more_options {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  z-index: 10;
+}
+.item .more_options:hover {
+  background-color: var(--card-color);
+}
+
+.access_item:hover .item .more_options {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*Estilos para contenedor footer*/
+footer {
+  display: flex;
+  align-items: end;
+  align-self: end;
+  flex: 2;
+}
+
+.footer__button {
+  display: flex;
+  background-color: var(--items-color);
+  color: aliceblue;
+  border-radius: 1.5rem;
+  border: none;
+  box-shadow: 0 2px 6px rgba(32, 33, 36, 0.28);
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 5px;
+  margin: 0px 20px 15px 0px;
+  padding: 5px 15px;
+  cursor: pointer;
+}

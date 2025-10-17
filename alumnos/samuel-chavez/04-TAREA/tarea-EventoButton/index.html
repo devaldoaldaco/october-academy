@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section>
+      <!--se puede hacer siempre y cuando se trabaje con elementos hijos, padres,hermano o adyacentes-->
+      <button>Click me</button>
+      <div class="box">esperando a cambio</div>
+    </section>
+
+    <section>
+      <!--Se aplica a checkboxes o radio buttons que están seleccionados.-->
+      <input type="checkbox" id="acepto" />
+      <label for="acepto">Acepto los términos </label>
+
+      <!--Se aplica a elementos de formulario que están deshabilitados-->
+      <button disabled>No clickeable</button>
+
+      <!--Selecciona el primer hijo de su elemento padre-->
+      <ul>
+        <li class="first">Primer elemento</li>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+      </ul>
+
+      <!--Selecciona el ultimo hijo de su elemento padre-->
+      <ul>
+        <li class="last">Primer elemento</li>
+        <li>Segundo elemento</li>
+        <li>Tercer elemento</li>
+      </ul>
+
+      <!--Selecciona el último elemento de su tipo entre sus hermanos dentro del mismo padre.-->
+      <div>
+        <h2>Título</h2>
+        <p>Primer párrafo</p>
+        <p>Segundo párrafo</p>
+        <span>Un span entre medio</span>
+        <p>Tercer párrafo</p>
+        <span>Último span</span>
+      </div>
+
+      <!--Selecciona elementos que son los unicos de su tipo entre hermanos-->
+
+      <div>
+        <p>Soy el único párrafo</p>
+        <span>Hay otros elementos pero no más párrafos</span>
+      </div>
+
+      <div>
+        <p>Soy el único párrafo</p>
+        <span>Hay otros elementos pero no más párrafos</span>
+      </div>
+
+      <!--:link para enlaces que aun no han sido visitados
+       :link para enlaces que han sido visitados-->
+      <a href="https://google.com">Google</a>
+      <a href="https://sitio-inventado.com">Enlace nuevo</a>
+
+       <!--Selecciona inputs que no son obligatorios, sin el atributo required-->
+      <input type="text" placeholder="Campo opcional (borde azul)" />
+      <input type="text" placeholder="Campo obligatorio" required />
+
+      <!--Selecciona inputs con valores fuera del rango permitido.-->
+      <label for="numero"></label>
+      <input type="number" id="numero" min="1" max="10" value="50">
+    </section>
+
+    <section>
+        <!--:nth-child()-->
+        
+    </section>
+  </body>
+</html>

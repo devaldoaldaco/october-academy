@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campeonato Leyendas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Registro - Torneo de Videojuegos</h1>
+    <form action="" class="">
+      <fieldset class="form-fieldset active">
+        <legend>Información general</legend>
+
+        <!--Primela fila-->
+        <label for="alias">
+          UserName / Alias
+          <input type="text" id="alias" name="alias" />
+        </label>
+        <label for="name">
+          Nombre Completos
+          <input type="text" id="name" name="name" />
+        </label>
+        <label for="lastname">
+          Apellidos Completos
+          <input type="text" id="lastname" name="lastname" />
+        </label>
+
+        <!--Segunda fila-->
+        <label for="country">
+          Seleccione su país de origen:
+          <input list="data" id="country" name="country" />
+        </label>
+        <datalist id="data">
+          <option value="Peru"></option>
+          <option value="Mexico"></option>
+          <option value="Argentina"></option>
+          <option value="Chile"></option>
+          <option value="España"></option>
+        </datalist>
+        <label for="age">
+          edad
+          <input type="number" id="age" name="age" />
+        </label>
+        <label for="date_birth">
+          fecha de nacimiento
+          <input type="date" id="date_birth" name="date_birth" />
+        </label>
+
+        <!--Tercera fila-->
+        <label for="email_form">
+          Correo Electrónico
+          <input
+            type="email"
+            id="email_form"
+            name="email_form"
+            placeholder="Ejm: Username@gmail.com"
+          />
+        </label>
+        <label for="discord">
+          Usuario de discord:
+          <input
+            type="text"
+            id="discord"
+            name="discord"
+            placeholder="Ejm: Username#1234"
+          />
+        </label>
+        <div class="radio">
+          tipo de inscripcion :
+          <label for="individual">
+            <input type="radio" id="individual" name="individual" />
+            individual
+          </label>
+          <label for="group">
+            <input type="radio" id="group" name="group" />
+            grupal
+          </label>
+        </div>
+      </fieldset>
+      <fieldset class="form-fieldset">
+        <legend>Perfil Competitivo</legend>
+        <!--Primela fila-->
+        <label for="game"
+          >Elija su juego:
+          <input list="games" id="game" name="game" />
+        </label>
+        <datalist id="games">
+          <option value="League of Legends"></option>
+          <option value="Valorant"></option>
+          <option value="Marvel Rivals"></option>
+        </datalist>
+        <label for="range">
+          Seleccione su rango actual:
+          <input list="ranges" id="range" name="range" />
+        </label>
+        <datalist id="ranges">
+          <option value="bronce"></option>
+          <option value="plata"></option>
+          <option value="oro"></option>
+        </datalist>
+        <label for="hours"
+          >Horas jugadas totales:
+          <input type="number" id="hours" name="hours" min="0" max="50000" />
+        </label>
+
+        <!--Segunda fila-->
+        <label for="seasons">
+          Temporadas completadas:
+          <input type="number" name="seasons" min="0" max="50" />
+        </label>
+        <label for="main">
+          Main:
+          <input
+            type="text"
+            id="main"
+            name="main"
+            placeholder="Personaje mejor jugable"
+          />
+        </label>
+        <label for="secondary">
+          Personajes secundarios:
+          <input
+            type="text"
+            id="secondary"
+            name="secondary"
+            placeholder="Ejm: lucian, Viego, ..."
+          />
+        </label>
+
+        <!--Tercera fila-->
+
+        <label for="position">
+          Mejor posición:
+          <input
+            id="position"
+            type="text"
+            name="position"
+            placeholder="Ejm: 1er lugar, Top 8"
+          />
+        </label>
+        <label for="teams">
+          Equipos anteriores:
+          <input type="text" name="teams" id="teams" />
+        </label>
+      </fieldset>
+      <fieldset class="form-fieldset">
+        <legend>Configuración Técnica y Streaming</legend>
+
+        <!--Primela fila-->
+        <div class="radio">
+          Plataforma :
+          <label for="pc">
+            <input type="radio" id="pc" name="pc" />
+            Computadora (pc)
+          </label>
+          <label for="playstation">
+            <input type="radio" id="playstation" name="playstation" />
+            PlayStation (ps)
+          </label>
+        </div>
+        <label for="ping">
+          Ping Promedio
+          <input type="text" id="ping" name="ping" placeholder="e.g. 42" />
+        </label>
+        <label for="peripherals">
+          Periféricos :
+          <input
+            type="text"
+            id="peripherals"
+            name="peripherals"
+            placeholder="audifonos, teclado ..."
+          />
+        </label>
+
+        <!--Segunda fila-->
+        <label
+          >Plataformas de Streaming :
+
+          <div class="checkbox">
+            <label for="twitch"
+              ><input
+                type="checkbox"
+                id="twitch"
+                name="twitch"
+                value="twitch"
+              />
+              Twitch</label
+            >
+            <label for="kick"
+              ><input type="checkbox" id="kick" name="kick" value="kick" />
+              Kick</label
+            >
+            <label for="facebookGaming"
+              ><input
+                type="checkbox"
+                id="facebookGaming"
+                name="facebookGaming"
+                value="facebookGaming"
+              />
+              Facebook Gaming</label
+            >
+            <label for="youtube"
+              ><input
+                type="checkbox"
+                id="youtube"
+                name="youtube"
+                value="youtube"
+              />
+              Youtube</label
+            >
+          </div>
+        </label>
+        <label for="speed up">
+          Velocidad de subida
+          <input type="number" id="speed up" name="speed up" />
+        </label>
+        <label for="speed down">
+          Velocidad de bajada
+          <input type="number" id="speed down" name="speed down" />
+        </label>
+
+        <!--Segunda fila-->
+        <label for="followers">
+          Cantidad de seguidores :
+          <input type="number" id="followers" name="followers" />
+        </label>
+      </fieldset>
+      <fieldset class="form-fieldset">
+        <legend>Disponibilidad y Aceptaciones</legend>
+
+        <!--Primela fila-->
+        <label for="availability">
+          Disponibilidad horaria
+          <input
+            type="text"
+            id="availability"
+            name="availability"
+            placeholder="Ejm: L-V 6pm-10pm"
+          />
+        </label>
+        <label for="cod">
+          Código de acceso al torneo
+          <input type="text" id="cod" name="cod" placeholder="Ejm: 72HHTR6" />
+        </label>
+
+        <!--Segunda fila-->
+        <div class="textArea">
+          <label for="consultation">Dudas o consultas adicionales : </label>
+          <textarea
+            name="consultation"
+            id="consultation"
+            rows="6"
+            cols="58"
+          ></textarea>
+        </div>
+      </fieldset>
+
+      <section>
+        <button type="button" class="btn-prev" id="prevBtn" disabled>
+          Antes
+        </button>
+        <button type="button" class="btn-next" id="nextBtn" id="nextBtn">
+          Siguiente
+        </button>
+        <button
+          type="submit"
+          class="btn-submit"
+          id="submitBtn"
+          style="display: none"
+        >
+          Enviar
+        </button>
+      </section>
+
+      <div class="bar">
+        <div class="bar__progress" id="progressBar"></div>
+        <p id="progressText">0%</p>
+      </div>
+    </form>
+    <section id="messageForm">
+      <h2>¡Felicitaciones Jugador, Que empiece el Desafío! 🎮</h2>
+      <p>Formulario completado exitosamente.</p>
+      <button onclick="location.reload()">Llenar otra vez</button>
+    </section>
+  </body>
+  <script>
+    let completedForms = 0;
+    let currentForms = 1;
+    const totalForms = 4;
+
+    const formConteiner = document.querySelector("form");
+    const forms = document.querySelectorAll(".form-fieldset");
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const submitBtn = document.getElementById("submitBtn");
+    const messageForm = document.getElementById("messageForm");
+
+    function updateProgress() {
+      const percentage = (completedForms / totalForms) * 100;
+      progressBar.style.width = percentage + "%";
+      progressText.textContent = Math.round(percentage) + "%";
+    }
+
+    function updateFormsAndButtons(formActive) {
+      forms.forEach((section) => section.classList.remove("active"));
+      forms[formActive - 1].classList.add("active");
+
+      if (formActive === totalForms) {
+        prevBtn.disabled = false;
+        nextBtn.style.display = "none";
+        submitBtn.style.display = "block";
+      } else {
+        nextBtn.style.display = "block";
+        submitBtn.style.display = "none";
+        if (formActive == 1) {
+          prevBtn.disabled = true;
+        } else {
+          prevBtn.disabled = false;
+        }
+      }
+
+      updateProgress();
+    }
+
+    nextBtn.addEventListener("click", () => {
+      if (currentForms < totalForms) {
+        currentForms++;
+        completedForms++;
+        updateFormsAndButtons(currentForms);
+      }
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (currentForms > 1) {
+        currentForms--;
+        completedForms--;
+        updateFormsAndButtons(currentForms);
+      }
+    });
+
+    formConteiner.addEventListener("submit", (e) => {
+      completedForms++;
+      e.preventDefault();
+      submitBtn.disabled = true;
+      prevBtn.disabled = true;
+      messageForm.style.display = "flex";
+      updateProgress();
+    });
+
+    updateProgress();
+  </script>
+</html>

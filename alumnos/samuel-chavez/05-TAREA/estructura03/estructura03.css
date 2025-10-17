@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 1rem;
+}
+
+header,
+footer {
+  grid-row: span 1;
+  background-color: gray;
+}
+body {
+  width: 35rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+}
+
+main {
+  height: 20rem;
+  grid-row: span 3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+
+  aside {
+    grid-column: span 1;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    nav {
+      grid-row: span 2;
+      background-color: blue;
+    }
+    section {
+      grid-row: span 1;
+      background-color: red;
+    }
+  }
+  article {
+    grid-column: span 3;
+    background-color: rgb(167, 150, 0);
+  }
+}

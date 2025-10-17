@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 50px 100px 50px 100px;
+}
+
+h1 {
+  font-size: 5rem;
+  margin: 0px;
+}
+
+hr {
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.page-footer {
+  font-size: x-small;
+  color: red;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header*/
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.principal_hr {
+  width: 100%;
+}
+
+strong {
+  font-size: small;
+  padding: 10px 0px 10px 0;
+}
+
+.principal_featured {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.principal_featured img {
+  max-width: 30%;
+  height: 100px;
+  object-fit: contain;
+}
+
+.principal_featured div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.principal_featured hr {
+   margin: 20px 0px 20px 0px;
+  }
+
+.principal_featured--first strong {
+  color: red;
+  font-size: small;
+}
+.principal_featured--second {
+  justify-content: end;
+}
+
+.principal_featured p {
+  max-width: 65%;
+}
+
+
+/* Seccion Contenido*/
+
+/* Seccion Contenido Inicial*/
+
+.content_initial {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content_initial h4 {
+  color: red;
+}
+.content_initial h2 {
+  font-size: 3rem;
+}
+.content_initial .content_initial--hr {
+  margin: 0 auto;
+  width: 500px;
+}
+.content_initial--center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 23px;
+}
+
+.content_initial--center p {
+  width: 40%;
+}
+
+.content_initial--paragraph {
+  font-size: small;
+}
+
+/* Seccion Contenido Central*/
+.content_central {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px 10px 0px;
+}
+
+.content_central img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.content_central--paragraph {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: row;
+  align-items: start;
+}
+.content_central--paragraph h3 {
+  width: 30%;
+  margin: 0px;
+}
+.content_central--paragraph p {
+  width: 70%;
+  margin: 0px;
+}
+/* Seccion Contenido Final*/
+.content_final {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.content_final--first {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.content_final--first h2 {
+  margin-top: 10px;
+}
+
+.content_final--second {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.content_final img {
+  margin-top: 10px;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.final_paragraph {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  text-align: justify;
+}
+
+/* Seccion Principal lado derecho*/
+
+.sidebar {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.sidebar hr {
+  width: 100%;
+}
+.sidebar img {
+  max-width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.sidebar_block{
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar_block--initial {
+  gap: 6px;
+  border-left: 1px solid #000;
+  padding: 0px 20px;
+}
+.initial_first {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 10px;
+}
+
+.initial_first p {
+  font-size: x-small;
+  text-align: justify;
+}
+
+.different_second {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.different_second h5 {
+  color: red;
+}
+.different_second p {
+  font-size: x-small;
+}
+
+/*Panel de distinto color*/
+
+.sidebar_block--different {
+  align-items: center;
+  padding: 10px 7px;
+  text-align: start;
+  gap: 15px;
+  background-color: #fff4ce;
+}
+
+.sidebar_block--different h6 {
+  color: red;
+}
+.sidebar_block--different h3 {
+  text-align: center;
+}
+.sidebar_block--different p {
+  font-size: small;
+}
+
+.sidebar_block--different div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 10px px;
+}

@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 1rem;
+}
+
+header,
+footer {
+  height: 5rem;
+  background-color: gray;
+}
+body {
+  width: 35rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+main {
+  height: 20rem;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  aside {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    nav {
+      flex: 2;
+      background-color: blue;
+    }
+    section {
+      flex: 1;
+      background-color: red;
+    }
+  }
+  article {
+    flex: 3;
+    background-color: rgb(167, 150, 0);
+  }
+}

@@ -1,0 +1,60 @@
+.box {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+}
+
+button:active + .box,
+button:focus + .box {
+  background-color: red;
+}
+
+input:checked + Label {
+  color: green;
+  font-weight: bold;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+li:first-child {
+  color: red;
+  font-weight: bold;
+}
+
+li:last-child {
+  color: aqua;
+  font-size: large;
+}
+
+p:last-of-type {
+  color: red;
+  font-weight: bold;
+  border: 2px solid red;
+  padding: 10px;
+}
+
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+
+a:visited {
+  color: purple;
+}
+
+p:only-of-type {
+  background-color: yellow;
+  padding: 10px;
+}
+
+input:optional {
+  border-left: 3px solid lightblue;
+  background-color: beige;
+}
+
+input:out-of-range {
+  border: 2px solid red;
+}

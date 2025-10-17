@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: block;
+  justify-content: center;
+  padding: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.radio,
+.checkbox {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  gap: 1.2rem;
+}
+
+form section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+button {
+  padding: 10px 3px;
+  width: 10%;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn buttons {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+input {
+  border-style: none;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+.form-fieldset {
+  display: none;
+}
+
+.form-fieldset.active {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 10px;
+  row-gap: 20px;
+}
+
+.textArea {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  gap: 10px;
+  grid-column: span 3;
+}
+textarea {
+  padding: 10px;
+}
+
+.bar {
+  display: flex;
+  align-self: end;
+  position: relative;
+  width: 30%;
+  height: 30px;
+  background: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.bar__progress {
+  width: 0%;
+  height: 100%;
+  background: #4caf50;
+  transition: width 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.bar p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+#messageForm {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: #d4edda;
+  border: 2px solid #28a745;
+  border-radius: 8px;
+  margin-top: 20px;
+}

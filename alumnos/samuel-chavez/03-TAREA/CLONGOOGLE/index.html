@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clon de Google</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <ul>
+          <li>
+            <a href="#">Gmail</a>
+          </li>
+          <li><a href="#">Imágenes</a></li>
+          <li>
+            <span class="material-symbols-outlined"> apps </span>
+          </li>
+          <li class="item_perfil">c</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <h1>
+          <span class="letter-large">G</span>oog<span class="letter-large"
+            >l</span
+          ><span class="letter-e">e</span>
+        </h1>
+
+        <section>
+          <div class="searcher">
+            <span
+              id="searchBtn"
+              class="searcher_search material-symbols-outlined"
+            >
+              search
+            </span>
+            <input
+              type="search"
+              id="recordInput"
+              name="recordInput"
+              list="recordOptions"
+              placeholder="Busca en Google o escribe una URL"
+            />
+            <datalist id="recordOptions"> </datalist>
+            <div class="searcher_complements">
+              <div><span class="material-symbols-outlined"> mic </span></div>
+              <div>
+                <span class="material-symbols-outlined"> photo_camera </span>
+              </div>
+            </div>
+          </div>
+          <div class="access">
+            <div class="access_item">
+              <div class="item item_icon">
+                <img src="./src/WhatsApp.png" alt="logo de WhatsApp" />
+                <div class="more_options">
+                  <span class="material-symbols-outlined">more_vert</span>
+                </div>
+              </div>
+              <span class="access-name">WhatsApp</span>
+            </div>
+            <div class="access_item">
+              <div class="item item_icon">
+                <img src="./src/Facebook.png" alt="Logo de Facebook" />
+                <div class="more_options">
+                  <span class="material-symbols-outlined">more_vert</span>
+                </div>
+              </div>
+              <span class="access-name">Facebook</span>
+            </div>
+            <div class="access_item">
+              <div class="item item_icon">
+                <img src="./src/YouTube.png" alt="WhatsApp" />
+                <div class="more_options">
+                  <span class="material-symbols-outlined">more_vert</span>
+                </div>
+              </div>
+              <span class="access-name">Youtube</span>
+            </div>
+            <div class="access_item">
+              <div class="item item_add">
+                <p>+</p>
+                <div class="more_options">
+                  <span class="material-symbols-outlined">more_vert</span>
+                </div>
+              </div>
+              <span class="access-name">Acceso directo</span>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <button class="footer__button">
+        <span class="material-symbols-outlined"> edit </span>
+        <span>Personaliza chrome</span>
+      </button>
+    </footer>
+  </body>
+</html>
+
+<script>
+  const searchInput = document.getElementById("recordInput");
+  const datalist = document.getElementById("recordOptions");
+  const searchBtn = document.getElementById("searchBtn");
+  let searchTimeout;
+
+  const recentSearches = [
+    "Qué países necesitan visa para ingresar desde Perú",
+    "Cuánto ejercicio se recomienda hacer por semana",
+    "El paso a paso para preparar un almuerzo nutritivo",
+    "Qué plantas son buenas para tener dentro de casa",
+    "Qué beneficios tiene la lectura diaria",
+    "Atletico Torino vs Pagua F.C.",
+    "Qué aplicaciones ayudan a controlar los gastos",
+  ];
+
+  searchBtn.addEventListener("click", () => {
+    const query = searchInput.value.trim();
+    if (query) {
+      const url = `https://www.google.com/search?q=${encodeURIComponent(
+        query
+      )}`;
+      window.open(url, "_blank");
+    }
+  });
+
+  function loadRecentSearches() {
+    datalist.innerHTML = "";
+    recentSearches.forEach((item) => {
+      const option = document.createElement("option");
+      option.value = item;
+      datalist.appendChild(option);
+    });
+  }
+
+  async function searchWikipedia(searchInputText) {
+    const url = `https://es.wikipedia.org/w/api.php?action=opensearch&search=${encodeURIComponent(
+      searchInputText
+    )}&limit=15&format=json&origin=*`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data[1];
+    } catch (error) {
+      console.error("Error:", error);
+      return [];
+    }
+  }
+
+  async function updateFromWikipedia(searchInputText) {
+    const titles = await searchWikipedia(searchInputText);
+    const matchingRecent = recentSearches.filter((item) =>
+      item.toLowerCase().includes(searchInputText.toLowerCase())
+    );
+
+    const newSearches = [...new Set([...matchingRecent, ...titles])];
+
+    datalist.innerHTML = "";
+
+    newSearches.forEach((title) => {
+      const option = document.createElement("option");
+      option.value = title;
+      datalist.appendChild(option);
+    });
+  }
+
+  loadRecentSearches();
+
+  searchInput.addEventListener("input", (e) => {
+    const searchInputText = e.target.value.trim();
+
+    if (searchInputText === "") {
+      loadRecentSearches();
+      return;
+    }
+
+    if (searchInputText.length >= 1) {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        updateFromWikipedia(searchInputText);
+      }, 400);
+    }
+  });
+</script>

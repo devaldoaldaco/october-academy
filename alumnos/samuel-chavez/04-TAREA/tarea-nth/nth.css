@@ -1,0 +1,86 @@
+/* Selecciona elementos según su posición entre todos sus hermanos.*/
+
+/*.general li:nth-child(1) {
+  color: green;
+}*/
+
+/* equivalente a :nth-child(1)*/
+.general li:first-of-type {
+  color: green;
+  text-decoration: line-through;
+}
+
+/* Seleccion de impares*/
+.general li:nth-child(odd) {
+  background-color: #746c6c;
+}
+
+/* Seleccion de pares*/
+.general li:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+/* tambien se pueden aplicar formulas*/
+.general li:nth-child(3n) {
+  font-size: 1.5rem;
+}
+
+/* Selecciona desde el final hacia el principio y de igual manera se puede*/
+/* seleccionar por par e impar y aplicando formulas*/
+.last li:nth-last-child(2) {
+  color: red;
+}
+
+.last li:nth-last-child(odd) {
+  background-color: darkseagreen;
+}
+
+.last li:nth-last-child(2n) {
+  font-weight: bold;
+  font-style: oblique;
+}
+
+/*.last li:nth-last-child(1) {
+  color: green;
+}*/
+
+.last li:last-child {
+  color: cadetblue;
+  text-decoration: line-through;
+}
+
+.type,
+.last-type {
+  padding: 20px;
+}
+/* Selecciona elementos según su posición entre hermanos del mismo tipo.*/
+.type p:nth-of-type(2n) {
+  color: red;
+}
+/* Realiza lo mismo que :nth-of-type() pero cuenta desde el final entre hermanos del mismo tipo*/
+
+.last-type p:nth-last-of-type(2) {
+  background-color: antiquewhite;
+}
+
+/*only-child & only-of-type*/
+.equipo {
+  background: #2c3e50;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+}
+.one {
+  p:only-child {
+    background: gold;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+.two {
+  p:only-of-type {
+    background: purple;
+    font-weight: bold;
+  }
+}

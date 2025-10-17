@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Exo 2", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+article:nth-child(1) {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+article:nth-last-child(1) {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+article,
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+article {
+  color: white;
+  width: 18rem;
+  padding: 3rem 2rem;
+  gap: 70px;
+
+  section {
+    gap: 20px;
+  }
+
+  button {
+    display: flex;
+    color: inherit;
+    padding: 1.5em 3em;
+    border: 0;
+    font-size: 0.6rem;
+    font-weight: bold;
+    border-radius: 2rem;
+    align-self: start;
+    background-color: white;
+  }
+}
+
+.bg-orange {
+  background-color: #f97316;
+  button {
+    color: #f97316;
+  }
+}
+
+.bg-green {
+  background-color: #14b8a6;
+  button {
+    color: #14b8a6;
+  }
+}
+
+.bg-black-green {
+  background-color: #004d4d;
+  button {
+    color: #004d4d;
+  }
+}

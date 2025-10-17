@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego de Memorable</title>
+    <link rel="stylesheet" href="memorama.css" />
+  </head>
+  <body>
+    <article>
+      <header>
+        <h1>Memorama</h1>
+        <p>
+          ¡Pon a prueba tu memoria! Encuentra todos los pares iguales para
+          ganar.
+        </p>
+      </header>
+
+      <main>
+        <div id="mensajeFinal">🎉 ¡Juego terminado! 🎉</div>
+        <section>
+          <div class="indicators">
+            <div class="contador-errores">
+              <p>Errores: <span id="errores">0</span></p>
+            </div>
+            <div class="contador-turnos">
+              <p>Turnos: <span id="turnos">0</span></p>
+            </div>
+          </div>
+          <button id="buttonPrincipal" disabled>Nuevo Juego</button>
+        </section>
+
+        <article class="cards"></article>
+      </main>
+      <script src="memoram.js"></script>
+    </article>
+  </body>
+</html>
