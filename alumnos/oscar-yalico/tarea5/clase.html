@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .card{
+            padding: 1rem;
+        }
+        .card[data-role="promo"]{
+            background-color: lightblue;
+        }
+        .card[class*="special"]{
+            border: 1px solid darkblue;
+        }
+        .card:first-child + .card{
+            margin-top: 0.5rem;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="cards">
+      <div class="card" data-role="promo">Promo 1</div>
+      <div class="card">Card 2</div>
+      <div class="card special">Card 3</div>
+    </div>
+  </body>
+</html>
+
+<!-- Escribe selectores que:
+Den padding: 1rem a todas las .card.
+Pinten de distinto color la .card con data-role="promo".
+Apliquen un borde solo a la .card.special.
+Usen un selector de hermano para reducir el margin-top del segundo card si viene después del primero.Criterio: tus reglas deben usar al menos un selector de atributo y un selector de hermano. -->

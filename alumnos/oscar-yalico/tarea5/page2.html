@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      :root {
+        --main-bg-color: #0d1a2d;
+        --card-bg-color: #15273f;
+        --main-text-color: #fff;
+        --subtitle-text-color: #90a4bf;
+        --highlight-color: #1bffff;
+        --font-family: "Outfit", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      main {
+        background-color: var(--main-bg-color);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        background-color: var(--card-bg-color);
+        padding: 1.5rem;
+        width: 20rem;
+        border-radius: 0.8rem;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+          rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+
+        img {
+          width: 100%;
+          border-radius: 0.8rem;
+        }
+
+        h1 {
+          color: var(--main-text-color);
+          font-size: 1.2rem;
+          font-family: var(--font-family);
+          margin: 1rem 0;
+        }
+
+        p {
+          color: var(--subtitle-text-color);
+          font-family: var(--font-family);
+          font-size: .9rem;
+          line-height: 1.5rem;
+        }
+
+        .info {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          margin: 1rem 0;
+        }
+
+        .info__data {
+          display: flex;
+          align-items: center;
+
+          &:first-child p {
+            color: var(--highlight-color);
+            font-weight: bold;
+          }
+
+          &:last-child {
+            display: flex;
+            justify-content: flex-end;
+          }
+        }
+      }
+
+      img[src*=".svg"] {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.3rem;
+      }
+
+      img[src*="avatar"] {
+        width: 2rem;
+        height: 2rem;
+        border: 2px solid white;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        vertical-align: middle;
+        margin-right: 1rem;
+      }
+
+      #creator{
+        border-top: 1px solid var(--subtitle-text-color);
+        display: flex;
+        align-items: center;
+        padding-top: .7rem;
+        span{
+            color: var(--main-text-color);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="card">
+        <img src="resource/pj1/image-equilibrium.jpg" alt="Equilibrium" />
+        <h1>Equilibrium #3429</h1>
+        <p>Our Equilibrium collection promotes balanced and calm.</p>
+        <div class="info">
+          <div class="info__data">
+            <img src="resource/pj1/icon-ethereum.svg" alt="ethereum" />
+            <p>0.041 ETH</p>
+          </div>
+          <div class="info__data">
+            <img src="resource/pj1/icon-clock.svg" alt="clock" />
+            <p>3 days left</p>
+          </div>
+        </div>
+        <div id="creator">
+            <img src="resource/pj1/image-avatar.png" alt="Avatar">
+            <p>Creation of <span>Jules Wyvern</span></p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

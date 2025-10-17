@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      :root {
+        --Bright-Orange: hsl(31, 77%, 52%);
+        --Dark-Cyan: hsl(184, 100%, 22%);
+        --Very-Dark-Cyan: hsl(179, 100%, 13%);
+        --Light-Grayish-Cyan: hsl(185, 41%, 84%);
+        --Light-Grayish-Cyan-2: hsl(189, 41%, 97%);
+        --White: hsl(0, 0%, 100%);
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 70%;
+        margin: 0 auto;
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+
+      .grilla {
+        padding: 3rem;
+        &:first-child {
+          background-color: var(--Bright-Orange);
+        }
+        &:nth-child(2) {
+          background-color: var(--Dark-Cyan);
+        }
+        &:last-child {
+          background-color: var(--Very-Dark-Cyan);
+          color: var(--White);
+        }
+
+        h2 {
+          text-transform: uppercase;
+          font-family: fantasy;
+          font-weight: 100;
+          color: var(--White);
+          margin: 1.5rem 0;
+        }
+
+        p {
+          color: var(--Light-Grayish-Cyan);
+          line-height: 1.5;
+          margin-bottom: 2rem;
+        }
+      }
+
+      button {
+        background-color: var(--White);
+        border: none;
+        padding: 0.8rem 2rem;
+        border-radius: 2rem;
+        text-transform: capitalize;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .grilla:first-child button {
+        color: var(--Bright-Orange);
+      }
+
+      .grilla:nth-child(2) button {
+        color: var(--Dark-Cyan);
+      }
+
+      .grilla:last-child button {
+        color: var(--Very-Dark-Cyan);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="grid-container">
+      <div class="grilla">
+        <img src="resource/pj2/icon-sedans.svg" alt="Sedans" />
+        <h2>Sedans</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis unde,
+          impedit consequatur fuga cum odio provident doloribus? Qui, laudantium
+          quisquam sint, consequatur nostrum voluptatum, odio ab mollitia cumque
+          provident repellendus!
+        </p>
+        <button>Learn More</button>
+      </div>
+      <div class="grilla">
+        <img src="resource/pj2/icon-suvs.svg" alt="Suvs" />
+        <h2>Suvs</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis unde,
+          impedit consequatur fuga cum odio provident doloribus? Qui, laudantium
+          quisquam sint, consequatur nostrum voluptatum, odio ab mollitia cumque
+          provident repellendus!
+        </p>
+        <button>Learn More</button>
+      </div>
+      <div class="grilla">
+        <img src="resource/pj2/icon-luxury.svg" alt="Luxury" />
+        <h2>Luxury</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis unde,
+          impedit consequatur fuga cum odio provident doloribus? Qui, laudantium
+          quisquam sint, consequatur nostrum voluptatum, odio ab mollitia cumque
+          provident repellendus!
+        </p>
+        <button>Learn More</button>
+      </div>
+    </main>
+  </body>
+</html>

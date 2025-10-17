@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      main {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      section {
+        margin-bottom: 40px;
+      }
+      h2 {
+        color: #333;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+      }
+      li {
+        list-style-type: none;
+        padding: 5px 0;
+      }
+      li:nth-child(odd) {
+        background-color: #e9e9e9;
+      }
+      li:nth-child(even) {
+        background-color: #c9c9c9;
+      }
+      li:first-child {
+        font-weight: bold;
+      }
+      li:last-child {
+        font-style: italic;
+      }
+
+      /* Estilo active form */
+      button:active {
+        background-color: #000000;
+        color: white;
+      }
+
+      .formulario {
+        display: flex;
+        gap: 2rem;
+        justify-content: space-evenly;
+      }
+
+      .campo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+        gap: 0.5rem;
+      }
+
+      .caja {
+        width: 100%;
+        height: 6rem;
+        background-color: #f4f4f4;
+        border: 1px solid #ddd;
+      }
+
+      /* Estilo pseudo clases */
+      details {
+        margin-bottom: 2rem;
+      }
+      summary {
+        font-weight: bold;
+        cursor: pointer;
+      }
+      /* 1. :hover */
+      .hover:hover {
+        color: blue;
+        background-color: lightgray;
+      }
+
+      /* 2. :active */
+      .active:active {
+        background-color: tomato;
+        color: white;
+      }
+
+      /* 3. :focus */
+      .focus:focus {
+        border: 2px solid green;
+        outline: none;
+      }
+
+      /* 4. :checked */
+      input[type="checkbox"]:checked + label {
+        color: green;
+        font-weight: bold;
+      }
+
+      /* 5. :first-child */
+      li:first-child {
+        color: purple;
+      }
+
+      /* 6. :last-child */
+      li:last-child {
+        color: orange;
+      }
+
+      /* 7. :nth-child(odd/even) */
+      li:nth-child(odd) {
+        background-color: #f0f0f0;
+      }
+
+      .not p:not(.especial) {
+        color: gray;
+      }
+
+      input:disabled {
+        background-color: #ddd;
+        color: #666;
+      }
+
+      input[type="email"]:valid {
+        border: 2px solid green;
+      }
+      input[type="email"]:invalid {
+        border: 2px solid red;
+      }
+
+      /*Arbol del DOM*/
+
+      figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f9fafb;
+        border: .1rem solid #e5e7eb; 
+        border-radius: 1rem;
+        padding: 1rem;
+        max-width: 25rem;
+        margin: 1.5rem auto;
+        transition: all 0.3s ease;
+      }
+
+      figure:hover {
+        transform: scale(1.02);
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      }
+
+      figure img {
+        max-width: 100%;
+        border-radius: 1rem;
+      }
+
+      figcaption {
+        margin-top: 0.75rem;
+        font-size: 0.95rem;
+        color: #374151;
+        font-style: italic;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h2>Nth:child</h2>
+        <ul>
+          <li>Texto1</li>
+          <li>Texto2</li>
+          <li>Texto3</li>
+          <li>Texto4</li>
+          <li>Texto5</li>
+          <li>Texto6</li>
+          <li>Texto7</li>
+          <li>Texto8</li>
+          <li>Texto9</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Button active change bg div</h2>
+        <div class="formulario">
+          <div class="campo">
+            <input type="color" name="color" id="color" value="#fff" />
+            <button id="boton">Presionar</button>
+          </div>
+          <div class="caja"></div>
+        </div>
+      </section>
+      <section>
+        <h2>10 pseudoclases</h2>
+        <details>
+          <summary>Pseudo-classe :hover</summary>
+          <p class="hover">Pasa el cursor sobre este texto</p>
+        </details>
+        <details>
+          <summary>:active</summary>
+          <button class="active">Presióname</button>
+        </details>
+        <details>
+          <summary>:focus</summary>
+          <input type="text" class="focus" placeholder="Haz clic aquí" />
+        </details>
+        <details>
+          <summary>:checked</summary>
+          <input type="checkbox" id="check" />
+          <label for="check">Activado</label>
+        </details>
+
+        <details>
+          <summary>:first-child</summary>
+          <ul class="first-child">
+            <li>Primer hijo (resaltado)</li>
+            <li>Segundo hijo</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>:last-child</summary>
+          <ul class="last-child">
+            <li>Primer hijo</li>
+            <li>Último hijo (resaltado)</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>:nth-child()</summary>
+          <ul class="nth-child">
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+            <li>Elemento 4</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>:not()</summary>
+          <div class="not">
+            <p>Normal</p>
+            <p class="especial">Este tiene clase "especial"</p>
+            <p>Normal también</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>:disabled</summary>
+          <input type="text" value="Activo" />
+          <input type="text" value="Deshabilitado" disabled />
+        </details>
+
+        <details>
+          <summary>:valid / :invalid</summary>
+          <input type="email" placeholder="Ingresa un correo" />
+        </details>
+      </section>
+      <section>
+        <h2>Arbol DOM</h2>
+        <figure>
+          <img src="image.png" alt="Arbol DOM" />
+          <figcaption>Arbol DOM</figcaption>
+        </figure>
+      </section>
+    </main>
+
+    <script>
+      const boton = document.getElementById("boton");
+      const colorInput = document.getElementById("color");
+      const caja = document.querySelector(".caja");
+
+      boton.addEventListener("mousedown", () => {
+        caja.style.backgroundColor = colorInput.value;
+      });
+
+      boton.addEventListener("mouseup", () => {
+        caja.style.backgroundColor = "lightgray";
+      });
+    </script>
+  </body>
+</html>

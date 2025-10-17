@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../normalize.css" />
+    <link rel="stylesheet" href="style4.css" />
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #202125;
+      }
+
+      header {
+        padding: 0.5rem 2rem;
+        nav {
+          ul {
+            display: flex;
+            gap: 2rem;
+            justify-content: flex-end;
+            align-items: center;
+            li {
+              list-style: none;
+              button {
+                border-radius: 50%;
+                object-fit: cover;
+              }
+              img {
+                width: 1.5rem;
+              }
+              a {
+                color: white;
+                text-decoration: none;
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+      }
+
+      h1 {
+        text-align: center;
+        letter-spacing: -2px;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 6rem;
+        margin: 0.3rem;
+      }
+
+      form {
+        margin: 0 auto;
+        margin-top: 2rem;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+      }
+
+      input[type="text"],
+      input[list] {
+        width: 100%;
+        padding: 12px 45px;
+        border: 1px solid #dfe1e5;
+        border-radius: 24px;
+        font-size: 16px;
+        outline: none;
+        box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+        background-color: #fff;
+        background-image: url("https://cdn-icons-png.flaticon.com/512/622/622669.png");
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: 15px center;
+        transition: all 0.2s ease-in-out;
+        position: relative;
+        z-index: 1;
+      }
+
+      input[type="text"]:hover,
+      input[list]:hover {
+        box-shadow: 0 1px 8px rgba(32, 33, 36, 0.4);
+      }
+
+      input[type="text"]:focus,
+      input[list]:focus {
+        border-color: #4285f4;
+        box-shadow: 0 1px 8px rgba(66, 133, 244, 0.5);
+      }
+
+      ::placeholder {
+        color: #80868b;
+      }
+
+      /* Estilos para mejorar la apariencia del datalist */
+      datalist {
+        position: absolute;
+        background-color: white;
+        border: 1px solid #dfe1e5;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(32, 33, 36, 0.28);
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Gmail</a></li>
+          <li><a href="#">Imágenes</a></li>
+          <li>
+            <button>
+              <img
+                src="https://www.transparentpng.com/download/user/gray-user-profile-icon-png-fP8Q1P.png"
+                alt="imagen"
+              />
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Google</h1>
+      <form action="">
+        <input
+          id="search"
+          list="browsers"
+          name="browser"
+          autocomplete="off"
+          placeholder="Ej. Pikachu"
+        />
+        <datalist id="browsers">
+          <option value=""></option>
+        </datalist>
+      </form>
+      <div class="result"></div>
+    </main>
+    <script>
+      const apiBase = "https://pokeapi.co/api/v2/pokemon";
+      const datalist = document.getElementById("browsers");
+      const input = document.getElementById("search");
+      const result = document.querySelector(".result");
+
+      const fetchSimpsons = async () => {
+        try {
+          const response = await fetch(`${apiBase}?limit=150`);
+          const data = await response.json();
+          datalist.innerHTML = "";
+          const nombres = new Set();
+
+          data.results.map((item) => {
+            nombres.add(item.name);
+          });
+
+          nombres.forEach((nombre) => {
+            console.log(nombre);
+            const option = document.createElement("option");
+            option.value = nombre;
+            datalist.appendChild(option);
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+      fetchSimpsons();
+    </script>
+  </body>
+</html>

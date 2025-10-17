@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style3.css" />
+  </head>
+  <body>
+    <form action="/enviar" method="post">
+      <fieldset>
+        <legend>Información Personal</legend>
+
+        <div class="campo">
+          <label for="nombre">Nombre completo:</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Ej. Oscar Yalico"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="correo">Correo electrónico:</label>
+          <input
+            type="email"
+            id="correo"
+            name="correo"
+            placeholder="ejemplo@correo.com"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="fecha-nacimiento">Fecha de nacimiento:</label>
+          <input
+            type="date"
+            id="fecha-nacimiento"
+            name="fechaNacimiento"
+            required
+          />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Datos Financieros</legend>
+
+        <div class="campo">
+          <label for="banco">Entidad bancaria:</label>
+          <input
+            type="text"
+            id="banco"
+            name="banco"
+            placeholder="Ej. Banco BCP"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="cuenta">Número de cuenta:</label>
+          <input
+            type="text"
+            id="cuenta"
+            name="cuenta"
+            placeholder="Ej. 123456789012"
+            pattern="\d{10,}"
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="ingresos">Ingresos mensuales (USD):</label>
+          <input
+            type="number"
+            id="ingresos"
+            name="ingresos"
+            placeholder="Ej. 1500"
+            min="0"
+            step="0.01"
+          />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Información Adicional</legend>
+
+        <div class="campo">
+          <label for="ocupacion">Ocupación:</label>
+          <input
+            type="text"
+            id="ocupacion"
+            name="ocupacion"
+            placeholder="Ej. Ingeniero de sistemas"
+          />
+        </div>
+
+        <div class="campo">
+          <label for="comentarios">Comentarios:</label>
+          <textarea
+            id="comentarios"
+            name="comentarios"
+            rows="4"
+            placeholder="Escriba aquí sus observaciones..."
+          ></textarea>
+        </div>
+
+        <label>
+          <input type="checkbox" name="terminos" required />
+          Acepto los términos y condiciones
+        </label>
+      </fieldset>
+
+      <button type="submit">Enviar formulario</button>
+    </form>
+  </body>
+</html>

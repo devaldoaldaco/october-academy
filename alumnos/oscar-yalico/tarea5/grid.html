@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarea 4</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: grid;
+        grid-template-areas:
+          "header header"
+          "aside main"
+          "footer footer";
+        grid-template-columns: 20% 1fr;
+        grid-template-rows: 60px 1fr 60px;
+        gap: 10px;
+        min-height: 100vh;
+        padding: 10px;
+      }
+
+      header {
+        grid-area: header;
+        background: gray;
+        border-radius: 10px;
+      }
+
+      aside {
+        grid-area: aside;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .aside-top {
+        background: steelblue;
+        border-radius: 10px;
+      }
+
+      .aside-bottom {
+        background: lightcoral;
+        border-radius: 10px;
+      }
+
+      main {
+        grid-area: main;
+        background: gold;
+        border-radius: 10px;
+      }
+
+      footer {
+        grid-area: footer;
+        background: thistle;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+    <aside>
+      <div class="aside-top"></div>
+      <div class="aside-bottom"></div>
+    </aside>
+    <main></main>
+    <footer></footer>
+  </body>
+</html>
