@@ -1,0 +1,301 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 777px;
+  height: 808px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid black;
+}
+
+.header__title {
+  color: red;
+  font-size: 100px;
+}
+
+.header__aside {
+  display: flex;
+  max-width: 180px;
+}
+.header__info {
+  & p:first-of-type {
+    color: red;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 2px solid black;
+  padding-right: 5px;
+}
+.header__edition {
+  & div p {
+    font-size: 8px;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+
+.main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  padding-top: 10px;
+}
+
+.news {
+  display: grid;
+  /* grid-template-rows: 2fr; */
+  grid-template-columns: 1fr;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.news__vacunacion {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 0px;
+  & > span {
+    color: grey;
+    font-size: 10px;
+  }
+  & > h2 {
+    font-size: 60px;
+  }
+  & > div:first-of-type {
+    & img {
+      width: 170px;
+    }
+    & div > ul {
+      list-style-position: inside;
+      text-indent: -14px;
+      font-size: 14px;
+    }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+img {
+  width: 150px;
+}
+
+.news__secondary {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 10px;
+  border-top: 2px solid black;
+  & > div:first-of-type {
+    padding-right: 10px;
+    border-right: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.news__fmi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  & > span {
+    color: grey;
+    font-size: 10px;
+  }
+  & > h2 {
+    font-size: 29px;
+  }
+
+  & > p > span {
+    color: red;
+    font-size: 8px;
+  }
+  & > p {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+}
+
+.news__mypes {
+  padding-top: 10px;
+  & > span {
+    color: grey;
+    font-size: 10px;
+  }
+  & > h3 {
+    font-size: 24px;
+    padding-top: 10px;
+  }
+  & > h3 > span {
+    color: red;
+    font-size: 8px;
+  }
+}
+
+.news__financieras {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  & > img {
+    width: 100%;
+  }
+  & > h2 > span {
+    color: red;
+    font-size: 8px;
+  }
+  & > span {
+    color: grey;
+    font-size: 10px;
+  }
+}
+
+.news__ademas {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.news__sistema {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  & > h3 {
+    font-size: 12px;
+    font-weight: bolder;
+  }
+  & > span {
+    color: grey;
+    font-size: 10px;
+  }
+  & > p {
+    font-size: 12px;
+  }
+  & > p > span {
+    color: red;
+    font-size: 12px;
+  }
+  & > img {
+    width: 100%;
+  }
+}
+
+.news__surco {
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border-bottom: 2px solid black;
+  & > p > span {
+    color: red;
+    font-size: 12px;
+  }
+  & > h3 {
+    font-size: 12px;
+  }
+  & > p {
+    font-size: 12px;
+  }
+}
+.news__fallecimiento {
+  padding-top: 5px;
+  padding-right: 10px;
+  & > div {
+    background-color: rgb(155, 189, 155);
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    & > img {
+      width: 15px;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+    }
+    & > div {
+      width: 2px;
+      background-color: black;
+    }
+    & > p {
+      font-size: 8px;
+      & > span {
+        color: red;
+        font-size: 6px;
+      }
+    }
+  }
+}
+
+.news__aside {
+  padding-left: 10px;
+  padding-top: 10px;
+  border-left: 2px solid black;
+}
+
+.news__datos {
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+  & > img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 185px;
+  }
+  & > span {
+    color: red;
+  }
+}
+.news__camisea {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid black;
+  & > span {
+    color: grey;
+  }
+  & > img {
+    width: 100%;
+    object-fit: contain;
+  }
+  & > p > span {
+    color: red;
+    font-size: 12px;
+  }
+}
+
+.news__valentin {
+  background-color: rgb(155, 189, 155);
+
+  margin-top: 10px;
+  padding: 5px;
+  & > span {
+    color: red;
+  }
+  & > h3 {
+    padding-bottom: 15px;
+    font-size: 14px;
+  }
+  & > h3 > span {
+    color: red;
+  }
+  & > img {
+    width: 100%;
+    object-fit: contain;
+  }
+}

@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  padding: 50px;
+}
+main {
+  width: 100%;
+}
+
+.fieldset {
+  padding: 10px;
+  display: none;
+}
+
+.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(188, 177, 177);
+  margin-top: 20px;
+  height: 30px;
+  border-radius: 12px;
+}

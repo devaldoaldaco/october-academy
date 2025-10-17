@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      header {
+        height: 100px;
+        background-color: #818081;
+        border-radius: 12px;
+      }
+      main {
+        margin-top: 20px;
+        height: 400px;
+        display: flex;
+        & > section {
+          background-color: #fec72d;
+          height: 100%;
+          width: calc(70% - 10px);
+          border-radius: 12px;
+        }
+      }
+      aside {
+        height: 100%;
+        width: calc(30% - 10px);
+        margin-right: 20px;
+        display: flex;
+        flex-direction: column;
+        & :nth-child(1) {
+          background-color: #7492bf;
+          height: calc(80% - 10px);
+          border-radius: 12px;
+        }
+        & :nth-child(2) {
+          background-color: #fd8284;
+          height: calc(20% - 10px);
+          border-radius: 12px;
+          margin-top: 20px;
+        }
+      }
+      footer {
+        height: 100px;
+        background-color: #c7bfe5;
+        border-radius: 12px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <aside>
+        <section></section>
+        <section></section>
+      </aside>
+      <section></section>
+    </main>
+    <footer></footer>
+  </body>
+</html>

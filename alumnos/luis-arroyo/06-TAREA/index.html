@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+      #table {
+        width: 600px;
+        height: 600px;
+        padding: 50px;
+        background-color: #fff;
+        border: 2px solid #36465b;
+        border-radius: 12px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+      }
+      .card {
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        cursor: pointer;
+        background-color: #36465b;
+        border: 1px solid black;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.6s ease;
+      }
+
+      img {
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+        backface-visibility: hidden;
+        opacity: 0;
+        transition: opacity 2s ease;
+        transition: transform 0.6s ease;
+        transform: scale(0);
+        &.is-flipped {
+          backface-visibility: visible;
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .is-flipped {
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="table">
+        <div class="card" id="1">
+          <img src="images/manzana.png" alt="" />
+        </div>
+        <div class="card" id="2"><img alt="" /></div>
+        <div class="card" id="3"><img alt="" /></div>
+        <div class="card" id="4"><img alt="" /></div>
+        <div class="card" id="5"><img alt="" /></div>
+        <div class="card" id="6"><img alt="" /></div>
+        <div class="card" id="7"><img alt="" /></div>
+        <div class="card" id="8"><img alt="" /></div>
+        <div class="card" id="9"><img alt="" /></div>
+        <div class="card" id="10"><img alt="" /></div>
+        <div class="card" id="11"><img alt="" /></div>
+        <div class="card" id="12"><img alt="" /></div>
+        <div class="card" id="13"><img alt="" /></div>
+        <div class="card" id="14"><img alt="" /></div>
+        <div class="card" id="15"><img alt="" /></div>
+        <div class="card" id="16"><img alt="" /></div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #fullscreen {
+        width: 100px;
+        height: 100px;
+        background-color: #4caf50;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      /*Interactua con el root*/
+      :root {
+        background: grey;
+      }
+      /*Interactua si el elemento esta en fullscreen*/
+      #fullscreen:fullscreen {
+        background-color: #ff5722;
+        color: yellow;
+        width: 100%;
+        height: 100%;
+      }
+      
+      /*Interactua si un elemento anchor ha sido clickeado antes*/
+      a:visited {
+        background-color: yellow;
+        color: green;
+        border: solid 1px black;
+      }
+      /*interactua si nuestro input tiene un valor relacionado al tipo de input utilizado*/
+      input:valid {
+        background-color: powderblue;
+      }
+      /*Interactua si nuestro valor esta en el rango permitido*/
+      input[type="number"]:in-range {
+        background-color: blue;
+        color: white;
+      }
+      /*Interactua si nuestro valor esta fuera del rango permitido*/
+      input[type="number"]:out-of-range {
+        background-color: red;
+        color: white;
+      }
+
+      /* Interactua con aquellos que no tengan la clase not-pseudo*/
+      #not-pseudo-div p:not(.not-pseudo) {
+        color: aqua;
+      }
+
+      /*Interactua con aquellos que no tengan required*/
+      input:optional {
+        border: 1px dashed black;
+      }
+
+      /*Campos solo readonly*/
+      input:read-only {
+        background-color: yellow;
+      }
+
+      /*Si esta targeteado desde la url*/
+      :target {
+        border: 1px solid green;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fullscreen">Fullscreen</div>
+    <a href="#" target="_blank">go to google</a>
+    <input type="email" name="" id="" required />
+    <input type="number" min="1" max="12" required />
+    <input type="text" />
+    <input type="text" name="" id="" placeholder="Readonly" readonly />
+    <input type="text" name="" id="" placeholder="Not readonly" />
+    <div id="not-pseudo-div">
+      <p class="not-pseudo">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non debitis
+        similique voluptates iure distinctio et ea vero saepe adipisci! Porro,
+        eaque sapiente. Provident rerum sunt sapiente impedit! Maxime, libero
+        voluptas.
+      </p>
+      <p class="not-pseudo">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident
+        cumque, veritatis laboriosam ipsam est aliquam magnam beatae, maxime
+        unde esse quo possimus. Cum assumenda ratione deserunt eius, molestiae
+        dolores quidem.
+      </p>
+      <p class="not-pseudo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae quod
+        debitis magnam laborum! Modi, consequatur est magnam magni sequi culpa
+        nam fugit vel tempora reiciendis quos error odio laboriosam similique.
+      </p>
+      <p class="other">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab dolorem
+        accusamus sequi, necessitatibus minus aliquid obcaecati animi non veniam
+        quibusdam nemo praesentium fugiat, saepe porro est excepturi numquam
+        dicta minima.
+      </p>
+    </div>
+    <p id="target">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex velit ullam
+      harum. Quod, officia sit vel, dicta aspernatur quo ex natus voluptatibus
+      similique eum labore ratione nostrum odio reprehenderit modi.
+    </p>
+    <script>
+      const fullscreen = document.getElementById("fullscreen");
+
+      fullscreen.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+          fullscreen.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      });
+    </script>
+  </body>
+</html>

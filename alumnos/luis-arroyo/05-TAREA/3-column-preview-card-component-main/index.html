@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | 3-column preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400&family=Big+Shoulders+Display:wght@700&display=swap");
+      :root {
+        --gold-500: hsl(31, 77%, 52%);
+        --cyan-800: hsl(184, 100%, 22%);
+        --green-950: hsl(179, 100%, 13%);
+        --white-paragraph: hsla(0, 0%, 100%, 0.75);
+        /* (background, headings, buttons) */
+        --gray-100: hsl(0, 0%, 95%);
+        --ff-body: "Lexend Deca", system-ui, sans-serif;
+        --ff-display: "Big Shoulders Display", "Lexend Deca", sans-serif;
+        --fw-regular: 400;
+        --fw-bold: 700;
+      }
+      *,
+      *::after,
+      *::before {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 50px;
+      }
+      main {
+        & > section {
+          display: flex;
+          border-radius: 12px;
+          & > section {
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 370px;
+            & > div {
+              display: flex;
+              flex-direction: column;
+              gap: 15px;
+              & > h3 {
+                font-family: var(--ff-display);
+                color: white;
+                font-weight: var(--fw-regular);
+                font-size: 30px;
+              }
+              & > p {
+                font-family: var(--ff-body);
+                color: var(--white-paragraph);
+                font-weight: var(--fw-regular);
+                font-size: 13px;
+              }
+            }
+            & > button {
+              outline: none;
+              border: none;
+              border-radius: 20px;
+              padding: 6px 12px;
+              min-width: 100px;
+              max-width: 150px;
+            }
+          }
+          & > section > div > img {
+            width: 30px;
+          }
+          & > section:nth-child(1) {
+            background-color: var(--gold-500);
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            & > button {
+              color: var(--gold-500);
+            }
+          }
+          & > section:nth-child(2) {
+            background-color: var(--cyan-800);
+            & > button {
+              color: var(--cyan-800);
+            }
+          }
+          & > section:nth-child(3) {
+            background-color: var(--green-950);
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+            & > button {
+              color: var(--green-950);
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <section>
+          <div>
+            <img src="images/icon-sedans.svg" alt="" />
+            <h3>SEDANS</h3>
+            <p>
+              Choose a sedan for its affordability and excellent fuel economy.
+              Ideal for cruising in the city or on your next road trip.
+            </p>
+          </div>
+          <button>Learn More</button>
+        </section>
+        <section>
+          <div>
+            <img src="images/icon-suvs.svg" alt="" />
+            <h3>SUVS</h3>
+            <p>
+              Take an SUV for its spacious interior, power, and versatility.
+              Perfect for your next family vacation and off-road adventures.
+            </p>
+          </div>
+          <button>Learn More</button>
+        </section>
+        <section>
+          <div>
+            <img src="images/icon-luxury.svg" alt="" />
+            <h3>LUXURY</h3>
+            <p>
+              Cruise in the best car brands without the bloated prices. Enjoy
+              the enhanced comfort of a luxury rental and arrive in style.
+            </p>
+          </div>
+          <button>Learn More</button>
+        </section>
+      </section>
+    </main>
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+  </body>
+</html>

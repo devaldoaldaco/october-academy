@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrusel</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        gap: 30px;
+      }
+      .carrousel {
+        width: 870px;
+        height: 500px;
+        border: 2px solid black;
+        border-radius: 12px;
+        overflow: hidden;
+        padding: 30px;
+        position: relative;
+      }
+
+      .carrousel-track {
+        display: flex;
+        gap: 30px;
+        transition: transform 0.6s ease;
+      }
+      .buttons {
+        width: 500px;
+        display: flex;
+        justify-content: space-between;
+        & button {
+          padding: 12px 20px;
+        }
+      }
+      .card {
+        flex: 0 0 250px;
+        height: 300px;
+        background-color: red;
+        /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        opacity: 0.5;
+        /* transform: scale(0.9); */
+      }
+      .active {
+        /* transform: scale(1.15);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); */
+        opacity: 1;
+        transform: scale(1.2);
+        z-index: 2;
+      }
+      .card.clone {
+        /* opacity: 0; */
+        background-color: green;
+        pointer-events: none;
+        /* visibility: hidden; */
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="carrousel">
+        <div class="carrousel-track">
+          <div class="card">
+            <img src="" alt="" />
+          </div>
+          <div class="card active">
+            <img src="" alt="" />
+          </div>
+          <div class="card">
+            <img src="" alt="" />
+          </div>
+          <div class="card">
+            <img src="" alt="" />
+          </div>
+          <div class="card">
+            <img src="" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="back"><-</button>
+        <button id="next">-></button>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

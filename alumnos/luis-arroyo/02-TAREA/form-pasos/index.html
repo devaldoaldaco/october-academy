@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <form id="myForm">
+        <fieldset id="informacion_personal" class="fieldset active">
+          <legend>Información Personal</legend>
+          <label for="nombres">Nombres</label>
+          <input
+            type="text"
+            name="nombres"
+            id="nombres"
+            placeholder="Ingrese sus nombres"
+          />
+          <label for="apellido_paterno">Apellido paterno</label>
+          <input
+            type="text"
+            name="apellido_paterno"
+            id="apellido_paterno"
+            placeholder="Ingrese su apellido paterno"
+          />
+          <label for="apellido_paterno">Apellido materno</label>
+          <input
+            type="text"
+            name="apellido_materno"
+            id="apellido_materno"
+            placeholder="Ingrese su apellido materno"
+          />
+          <label for="dni">DNI</label>
+          <input
+            type="text"
+            name="dni"
+            id="dni"
+            placeholder="Ingrese su numero de dni"
+          />
+          <label for="telefono">Telefono</label>
+          <input
+            type="tel"
+            name="telefono"
+            id="telefono"
+            placeholder="Ingrese su numero de teléfono"
+          />
+          <label for="fecha_nacimiento">Fecha nacimiento</label>
+          <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" />
+          <button type="button" onclick="nextStep(1)">Siguiente</button>
+        </fieldset>
+
+        <fieldset id="informacion_laboral" class="fieldset">
+          <legend>Información laboral</legend>
+          <label for="razon_social">Razon social empresa</label>
+          <input
+            type="text"
+            name="razon_social"
+            id="razon_social"
+            placeholder="Ingrese el nombre de su empresa"
+          />
+          <label for="puesto">Puesto</label>
+          <input
+            type="text"
+            name="puesto"
+            id="puesto"
+            placeholder="Ingrese su puesto actual"
+          />
+          <label for="fecha_ingreso">Fecha de ingreso</label>
+          <input type="date" name="fecha_ingreso" id="fecha_ingreso" />
+          <label for="remuneracion">Remuneracion</label>
+          <input
+            type="number"
+            name="remuneracion"
+            id="remuneracion"
+            placeholder="Ingrese su remuneracion"
+          />
+          <label for="nombre_jefe">Nombre jefe</label>
+          <input
+            type="text"
+            name="nombre_jefe"
+            id="nombre_jefe"
+            placeholder="Ingrese el nombre de su jefe directo"
+          />
+          <label for="telefono_jefe">Telefono jefe</label>
+          <input type="tel" name="telefono_jefe" id="telefono_jefe" />
+          <button type="button" onclick="prevStep(2)">Atrás</button>
+          <button type="button" onclick="nextStep(2)">Siguiente</button>
+        </fieldset>
+
+        <fieldset id="informacion_prestamo" class="fieldset">
+          <legend>Detalle del prestamo</legend>
+          <label for="monto_prestamo">Monto solicitado</label>
+          <input type="number" name="monto_prestamo" id="monto_prestamo" />
+          <label for="plazo">Meses</label>
+          <input type="number" name="plazo" id="plazo" />
+
+          <label for="solicitudCredito">Periodo de gracia</label>
+          <fieldset style="border: none">
+            <input type="radio" id="si" name="solicitudCredito" value="si" />
+            <label for="si">Sí</label>
+
+            <input type="radio" id="no" name="solicitudCredito" value="no" />
+            <label for="no">No</label>
+          </fieldset>
+          <button type="button" onclick="prevStep(3)">Atrás</button>
+          <input type="submit" value="Enviar" />
+        </fieldset>
+      </form>
+      <div class="progress__container">
+        <span>1/3</span>
+      </div>
+    </main>
+
+    <script>
+      const data = {
+        1: "informacion_personal",
+        2: "informacion_laboral",
+        3: "informacion_prestamo",
+      };
+      const prevStep = (num) => {
+        event.preventDefault();
+        const currentForm = document.getElementById(data[num]);
+        const prevForm = document.getElementById(data[num - 1]);
+        currentForm.classList.remove("active");
+        prevForm.classList.add("active");
+        const newProgress = document.querySelector(".progress__container span");
+        newProgress.textContent = `${num - 1}/3`;
+      };
+      const nextStep = (num) => {
+        event.preventDefault();
+        const currentForm = document.getElementById(data[num]);
+        if (!isFilled(currentForm)) {
+          alert("Llene todos los campos");
+        } else {
+          const nextForm = document.getElementById(data[num + 1]);
+          currentForm.classList.remove("active");
+          nextForm.classList.add("active");
+        }
+        const newProgress = document.querySelector(".progress__container span");
+        newProgress.textContent = `${num + 1}/3`;
+      };
+      const isFilled = (form) => {
+        const inputs = form.querySelectorAll("input");
+        let valid = true;
+        inputs.forEach((input) => {
+          if (!input.value.trim()) {
+            valid = false;
+            input.style.border = "1px solid red";
+          }
+        });
+        if (!valid) return false;
+        return true;
+      };
+      const myForm = document.getElementById("myForm");
+      console.log(myForm);
+      const evaluateForm = (event) => {
+        event.preventDefault();
+        console.log(event);
+
+        const form = event.target;
+        const formData = new FormData(form);
+        const formDataEntries = Object.fromEntries(formData.entries());
+
+        //VALIDACION BASICA, CUOTA NO MAYOR AL 30% DE LOS INGRESOS
+        const cuota = formDataEntries.monto_prestamo / formDataEntries.plazo;
+        console.log(cuota);
+        if (cuota > formDataEntries.remuneracion * 0.3)
+          return alert("No se puede");
+        alert("Prestamo enviado, su solicitud sera evaluada");
+
+        //RESET
+        const currentForm = document.getElementById(data[3]);
+        console.log(currentForm);
+        const firstForm = document.getElementById(data[1]);
+        console.log(firstForm);
+        currentForm.classList.remove("active");
+        firstForm.classList.add("active");
+        const newProgress = document.querySelector(".progress__container span");
+        newProgress.textContent = `1/3`;
+        form.reset();
+      };
+      myForm.addEventListener("submit", evaluateForm);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  color: red; /*prioridad mas baja*/
+}
+
+.secondary {
+  color: black; /*segunda prioridad mas alta*/
+}
+
+#titleId {
+  color: blue; /*prioridad mas alta despues de !important*/
+}
+
+p {
+  color: green; /*solo se aplica por sobre selectores globales*/
+}
+
+#paragraphId {
+  color: aqua;
+}
