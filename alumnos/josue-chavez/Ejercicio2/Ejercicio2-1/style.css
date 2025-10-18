@@ -1,0 +1,122 @@
+body {
+    font-family: 'Times New Roman';
+    margin: 0;
+    background-color: #f2f8fc;
+}
+
+.contenedor {
+    width: 400px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+fieldset {
+    border: 2px solid #27BBF5;
+    border-radius: 8px;
+    padding: 20px;
+    display: none;
+}
+
+legend {
+    font-weight: bold;
+    color: #27BBF5;
+    font-size: 1.1em;
+    padding: 0 10px;
+}
+
+#paso1:checked ~ form fieldset:nth-of-type(1),
+#paso2:checked ~ form fieldset:nth-of-type(2),
+#paso3:checked ~ form fieldset:nth-of-type(3) {
+    display: block;
+}
+
+.barra {
+    height: 18px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progreso {
+    height: 100%;
+    background: #27BBF5;
+    width: 0%;
+    transition: width 0.4s ease;
+}
+
+#paso1:checked ~ .barra .progreso { width: 33%; }
+#paso2:checked ~ .barra .progreso { width: 66%; }
+#paso3:checked ~ .barra .progreso { width: 100%; }
+
+label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #27BBF5;
+    outline: none;
+    box-shadow: 0 0 5px rgba(39, 187, 245, 0.4);
+}
+
+.botones {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.siguiente,
+.anterior,
+input[type="submit"] {
+    background: #27BBF5;
+    color: white;
+    padding: 10px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+    transition: background 0.2s, transform 0.1s;
+    text-transform: uppercase;
+}
+
+.anterior {
+    background: #7cccf4;
+    margin-right: 8px;
+}
+
+.siguiente:hover,
+.anterior:hover,
+input[type="submit"]:hover {
+    background: #1ca7db;
+    transform: scale(1.02);
+}
+
+input[type="submit"] {
+    flex: 1;
+    text-align: center;
+}

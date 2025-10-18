@@ -1,0 +1,49 @@
+body {
+    margin: 0px;
+    background-color: #f2f2f2;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding-top: 35vh;
+}
+
+h1 {
+    color: #333;
+    font-size: 80px;
+    margin: 0px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 25px;
+    padding: 8px 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 800px;
+}
+
+input[type="search"] {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    padding: 8px;
+}
+
+input[type="submit"] {
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #3367D6;
+}

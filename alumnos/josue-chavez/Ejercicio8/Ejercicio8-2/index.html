@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métodos estáticos e instancias en JS</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #0077cc;
+    }
+    section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+    h2 {
+      color: #444;
+      margin-bottom: 10px;
+    }
+    button {
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-right: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    pre {
+      background: #eee;
+      padding: 10px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplos de Métodos Estáticos y de Instancia</h1>
+
+  <!-- STRING -->
+  <section>
+    <h2>🧩 String</h2>
+    <button onclick="stringInstancia()">Métodos de instancia</button>
+    <button onclick="stringEstaticos()">Métodos estáticos</button>
+    <pre id="stringResultado"></pre>
+  </section>
+
+  <!-- NUMBER -->
+  <section>
+    <h2>🔢 Number</h2>
+    <button onclick="numberInstancia()">Métodos de instancia</button>
+    <button onclick="numberEstaticos()">Métodos estáticos</button>
+    <pre id="numberResultado"></pre>
+  </section>
+
+  <!-- OBJECT -->
+  <section>
+    <h2>🧱 Object</h2>
+    <button onclick="objectInstancia()">Métodos de instancia</button>
+    <button onclick="objectEstaticos()">Métodos estáticos</button>
+    <pre id="objectResultado"></pre>
+  </section>
+
+  <script>
+    // ---------------- STRING ----------------
+    function stringInstancia() {
+      const texto = "Hola Mundo JS";
+      const resultado = `
+text.length ➜ ${texto.length}
+text.toUpperCase() ➜ ${texto.toUpperCase()}
+text.toLowerCase() ➜ ${texto.toLowerCase()}
+text.includes("Mundo") ➜ ${texto.includes("Mundo")}
+text.replace("Mundo", "Amigo") ➜ ${texto.replace("Mundo", "Amigo")}
+text.slice(0, 4) ➜ ${texto.slice(0, 4)}
+text.split(" ") ➜ ${texto.split(" ")}
+text.trim() ➜ "${"  Hola  ".trim()}"
+      `;
+      document.getElementById("stringResultado").textContent = resultado;
+    }
+
+    function stringEstaticos() {
+      const resultado = `
+String.fromCharCode(72, 79, 76, 65) ➜ ${String.fromCharCode(72,79,76,65)}
+String.raw\`Hola\\nMundo\` ➜ ${String.raw`Hola\nMundo`}
+String("123") === "123" ➜ ${String("123") === "123"}
+      `;
+      document.getElementById("stringResultado").textContent = resultado;
+    }
+
+    // ---------------- NUMBER ----------------
+    function numberInstancia() {
+      const num = 1234.567;
+      const resultado = `
+num.toFixed(2) ➜ ${num.toFixed(2)}
+num.toPrecision(6) ➜ ${num.toPrecision(6)}
+num.toString(16) ➜ ${num.toString(16)}
+num.valueOf() ➜ ${num.valueOf()}
+      `;
+      document.getElementById("numberResultado").textContent = resultado;
+    }
+
+    function numberEstaticos() {
+        const resultado = `
+            Number.isInteger(5) ➜ ${Number.isInteger(5)}
+            Number.parseInt("100px") ➜ ${Number.parseInt("100px")}
+            Number.parseFloat("3.14 metros") ➜ ${Number.parseFloat("3.14 metros")}
+            Number.isNaN(NaN) ➜ ${Number.isNaN(NaN)}
+            Number.MAX_VALUE ➜ ${Number.MAX_VALUE}
+        `;
+        document.getElementById("numberResultado").textContent = resultado;
+    }
+
+    // ---------------- OBJECT ----------------
+    function objectInstancia() {
+        const persona = { nombre: "Josue", edad: 23 };
+        const resultado = `
+            persona.hasOwnProperty("nombre") ➜ ${persona.hasOwnProperty("nombre")}
+            persona.toString() ➜ ${persona.toString()}
+            persona.valueOf() ➜ ${JSON.stringify(persona.valueOf())}
+        `;
+        document.getElementById("objectResultado").textContent = resultado;
+    }
+
+    function objectEstaticos() {
+      const persona = { nombre: "Josue", edad: 23 };
+      const resultado = `
+Object.keys(persona) ➜ ${Object.keys(persona)}
+Object.values(persona) ➜ ${Object.values(persona)}
+Object.entries(persona) ➜ ${JSON.stringify(Object.entries(persona))}
+Object.assign({}, persona, { ciudad: "Trujillo" }) ➜ ${JSON.stringify(Object.assign({}, persona, { ciudad: "Trujillo" }))}
+Object.freeze(persona) ➜ ${JSON.stringify(Object.freeze({ ...persona }))}
+      `;
+      document.getElementById("objectResultado").textContent = resultado;
+    }
+  </script>
+</body>
+</html>

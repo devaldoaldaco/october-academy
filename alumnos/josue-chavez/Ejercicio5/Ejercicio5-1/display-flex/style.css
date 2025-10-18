@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: auto;
+    max-width: 820px;
+    padding: 10px;
+}
+
+header {
+    height: 64px;
+    background: #7e7e7e;
+    border-radius: 14px;
+    margin-bottom: 12px;
+}
+
+.contenido {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 20%;
+}
+
+aside {
+    height: 240px;
+    background: #7e9ac1;
+    border-radius: 14px;
+}
+
+article {
+    height: 120px;
+    background: #ff9fa1;
+    border-radius: 14px;
+}
+
+main {
+    flex: 1;
+    min-height: 372px;
+    background: #f7c400;
+    border-radius: 14px;
+}
+
+footer {
+    height: 64px;
+    background: #d6cfea;
+    border-radius: 14px;
+}

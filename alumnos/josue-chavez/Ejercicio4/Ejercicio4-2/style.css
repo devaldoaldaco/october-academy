@@ -1,0 +1,56 @@
+.lista-ejemplo li {
+    padding: 10px;
+    margin: 5px 0;
+    list-style: none;
+    background-color: #f0f0f0;
+    border-left: 5px solid transparent;
+    transition: all 0.3s ease;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 1. Selección por número específico (3) */
+/* Selecciona y resalta el TERCER elemento (índice 3) */
+.lista-ejemplo li:nth-child(3) {
+    background-color: #ffccaa;
+    border-left-color: orange;
+    color: #a0522d;
+}
+
+/* 2. Palabra clave 'odd' (Impar) */
+/* Selecciona el 1°, 3°, 5°, 7°, etc., elementos */
+.lista-ejemplo li:nth-child(odd) {
+    font-style: italic;
+}
+
+/* 3. Palabra clave 'even' (Par) */
+/* Selecciona el 2°, 4°, 6°, 8°, etc., elementos */
+.lista-ejemplo li:nth-child(even) {
+    background-color: #d1e7dd;
+}
+
+/* 4. Fórmula simple: 2n (Equivalente a 'even', cada 2 elementos) */
+/* Aplica un color de texto diferente a los pares */
+.lista-ejemplo li:nth-child(2n) {
+    color: #007bff;
+}
+
+/* 5. Fórmula con desplazamiento: 3n + 1 (Cada 3 elementos, empezando por el 1) */
+/* Selecciona el 1°, 4°, 7°, 10°, etc. elementos */
+.lista-ejemplo li:nth-child(3n + 1) {
+    border-right: 5px solid darkgreen;
+    font-size: 1.1em;
+}
+
+/* 6. Selección a partir de un índice: n + 5 (Todos a partir del 5º) */
+/* Selecciona el 5°, 6°, 7°, 8°, etc. elementos */
+.lista-ejemplo li:nth-child(n + 5) {
+    text-decoration: underline;
+    background-color: #fffacd;
+}
+
+/* 7. Selección hasta un índice: -n + 4 (Todos HASTA el 4º) */
+/* Selecciona el 4°, 3°, 2°, 1° elementos */
+.lista-ejemplo li:nth-child(-n + 4) {
+    border-bottom: 2px dashed #6c757d;
+}
