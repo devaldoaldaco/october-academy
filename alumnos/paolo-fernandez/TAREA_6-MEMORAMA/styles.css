@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0F172A;
+  color: #FFF;
+  padding: 40px 100px;
+  min-width: 740px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#memoryGame {
+  margin: 40px auto 0;
+  background-color: #1E293B;
+  border-radius: 15px;
+  width: 700px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+  padding: 100px 20px 30px 20px;
+  place-items: center;
+  position: relative;
+}
+
+#memoryGame > button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 160px;
+  padding: 15px;
+  color: #FFF;
+  background-color: #0F172A;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+
+  &:hover {
+    background-color: transparent;
+    outline: 3px solid #0F172A;
+  }
+}
+
+#memoryGame > div {
+  width: 150px;
+  height: 150px;
+  background-color: #0F172A;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.5s;
+  border: 4px solid #0F172A;
+
+  &:hover {
+    background-color: #1E293B;
+  }
+}
+
+.show-img {
+  transform: rotateY(180deg);
+}
+
+#memoryGame > div > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: rotateY(180deg);
+}
