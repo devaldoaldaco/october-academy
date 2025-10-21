@@ -243,7 +243,7 @@ console.log('0' === 0) // false => evitamos type coercion
 // unstrict equal
 console.log('0' != 0) // false => type coercion
 
-// unstrict equal
+// strict equal
 console.log('0' !== 0) // true => evitamos type coercion
 
 
