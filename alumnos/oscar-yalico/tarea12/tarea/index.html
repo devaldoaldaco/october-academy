@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora con Pilas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora (Infijo a Postfijo con Pilas)</h1>
+    
+    <input id="expression" type="text" placeholder="Ejemplo: 3 + 4 * (2 - 1)" />
+    
+    <div class="buttons">
+      <button id="convert">Convertir a Postfijo</button>
+      <button id="evaluate">Evaluar</button>
+      <button id="clear">Limpiar</button>
+    </div>
+    
+    <div class="output">
+      <p><strong>Postfijo:</strong> <span id="postfix"></span></p>
+      <p><strong>Resultado:</strong> <span id="result"></span></p>
+    </div>
+  </div>
+  
+  <script src="ejercicios.js"></script>
+</body>
+</html>
