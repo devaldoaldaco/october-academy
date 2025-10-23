@@ -479,6 +479,65 @@ Restricción: delegación dinámica: si no se pasa swimmer, superAgent.swim() de
 Pista: usa Proxy opcionalmente para delegar automáticamente métodos no presentes.
 */
 
+class CanFly {
+  fly() {
+    return "Flying";
+  }
+}
+
+class CanSwim {
+  swim() {
+    return "Swimming";
+  }
+}
+
+class CanWalk {
+  walk() {
+    return "Walking";
+  }
+}
+
+class SuperAgent {
+  constructor({ flyer, swimmer, walker }) {
+    this._flyer = flyer;
+    this._swimmer = swimmer;
+    this._walker = walker;
+  }
+
+  // _checkCapability(methodName, instance) {
+  //   if (!instance) {
+  //     throw new Error(
+  //       `Capacidad Faltante: SuperAgent no puede ejecutar ${methodName}() porque el rol no fue asignado.`
+  //     );
+  //   }
+  // }
+
+  fly() {
+    // this._checkCapability("fly", this._flyer);
+    return this._flyer.fly();
+  }
+
+  swim() {
+    // this._checkCapability("swim", this._swimmer);
+    return this._swimmer.swim();
+  }
+
+  walk() {
+    // this._checkCapability("walk", this._walker);
+    return this._walker.walk();
+  }
+}
+// Agente con capacidad de nadar y caminar, pero NO volar.
+const agent = new SuperAgent({
+  swimmer: new CanSwim(),
+  walker: new CanWalk(),
+  flyer: new CanFly(),
+});
+
+console.log(`Nadar: ${agent.swim()}`);
+console.log(`Caminar: ${agent.walk()}`);
+console.log(`Volar: ${agent.fly()}`);
+
 /*
 Ejercicio 8 — Serialización/Deserialización con preservación de prototipo
 
@@ -500,6 +559,66 @@ const restored = deserialize(s);
 restored.owner instanceof Person; // true
 */
 
+const class_registry = new Map();
+
+function registerClass(name, ctor) {
+  class_registry.set(name, ctor);
+}
+
+function serialize(obj) {
+  const replacer = (_, value) => {
+    if (typeof value === "object" && value) {
+      for (const [name, ctor] of class_registry.entries()) {
+        if (value instanceof ctor) {
+          const data = { ...value };
+          data.__class__ = name;
+          return data;
+        }
+      }
+    }
+    return value;
+  };
+
+  return JSON.stringify(obj, replacer);
+}
+
+function deserialize(str) {
+  const reviver = (_, value) => {
+    if (value && typeof value === "object") {
+      const className = value.__class__;
+      const ctor = class_registry.get(className);
+
+      if (ctor) {
+        const instance = Object.create(ctor.prototype);
+        for (const prop in value) {
+          if (prop !== "__class__") {
+            instance[prop] = value[prop];
+          }
+        }
+
+        return instance;
+      }
+    }
+    return value;
+  };
+
+  return JSON.parse(str, reviver);
+}
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+registerClass("Person", Person);
+const p = new Person("Ana");
+const s = serialize({ owner: p });
+console.log(s);
+const restored = deserialize(s);
+console.log(restored.owner instanceof Person);
+
 /*
 Ejercicio 9 — Performance: método en prototype vs método por instancia
 
@@ -513,6 +632,50 @@ Firma sugerida: benchmarkPrototypeVsInstance(iterations = 100000).
 Restricción: muestra resultados y concluye cuál es más eficiente y por qué.
 Pista: el método por instancia duplica la función por cada objeto; el prototype comparte la referencia.
 */
+
+/**
+ * Compara el tiempo y la memoria de crear 100,000 instancias
+ * con métodos definidos en el prototipo vs. por instancia.
+ */
+function benchmarkPrototypeVsInstance(iterations = 100000) {
+  class PrototypeClass {
+    constructor(id) {
+      this.id = id;
+    }
+    getId() {
+      return this.id;
+    }
+  }
+
+  class InstanceClass {
+    constructor(id) {
+      this.id = id;
+      this.getId = function () {
+        return this.id;
+      };
+    }
+  }
+
+  const startPrototypeTest = performance.now();
+  const protoObjects = [];
+  for (let i = 0; i < iterations; i++) {
+    new PrototypeClass(i);
+  }
+  const endPrototypeTest = performance.now();
+
+  const startIntanceTest = performance.now();
+  const instanceObjects = [];
+  for (let i = 0; i < iterations; i++) {
+    new InstanceClass(i);
+  }
+  const endInstanceTest = performance.now();
+
+  console.log("--- COMPARACIÓN PERFORMANCE PROTO / INSTANCE");
+  console.log(` PROTO ---> ${endPrototypeTest - startPrototypeTest} `);
+  console.log(` INSTANCE ---> ${endInstanceTest - startIntanceTest} `);
+}
+//ES MAS EFICIENTE POR PROTOTIPO YA QUE AL GUARDAR REFERENCIA SE AHORRA ESTAR DUPLICANDO LAS FUNCIONES POR CADA OBJETO
+benchmarkPrototypeVsInstance();
 
 /*
 Ejercicio 10 — Patrón Decorator con clases y prototype (runtime wrapping)
@@ -531,3 +694,57 @@ const d = decorateWithLogger(orig);
 await d.fetchData(1); // logs "fetchData args:[1] - took 32ms"
 
 */
+
+function decorateWithLogger(instance) {
+  const handler = {
+    get(target, propKey) {
+      const value = target[propKey];
+      return function (...args) {
+        const startTime = performance.now();
+        const methodName = propKey.toString();
+        console.log(
+          `[LOGGER] Invocando método: ${methodName}, Args: [${args.join(", ")}]`
+        );
+        let result = value.apply(target, args);
+
+        if (result && typeof result.then === "function") {
+          return result.finally(() => {
+            const endTime = performance.now();
+            const duration = (endTime - startTime).toFixed(2);
+            console.log(
+              `[LOGGER] FINALIZADO: ${methodName} — Tiempo: ${duration} ms`
+            );
+          });
+        }
+
+        const endTime = performance.now();
+        const duration = (endTime - startTime).toFixed(2);
+        console.log(
+          `[LOGGER] FINALIZADO: ${methodName} — Tiempo: ${duration} ms`
+        );
+
+        return result;
+      };
+    },
+  };
+
+  return new Proxy(instance, handler);
+}
+class SomeService {
+  constructor() {}
+
+  fetchData(id) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(`Data for ID ${id}`);
+      }, 200);
+    });
+  }
+
+  calculate(a, b) {
+    return a + b;
+  }
+}
+const orig = new SomeService();
+const d = decorateWithLogger(orig);
+(async () => await d.fetchData(1))();

@@ -525,6 +525,48 @@ console.log("EJERICIO 18, GLOBAL ", x); //sigue en 10
 // Firma: function toPure(obj) { }
 // Pista: usa Object.entries, function.prototype.toString() solo si quieres; una implementación práctica puede requerir reescribir manualmente.
 
+console.log("ejercicio 19");
+function toPure(obj) {
+  const pureMethods = {};
+  Object.entries(obj).forEach(([key, method]) => {
+    if (typeof method === "function") {
+      pureMethods[key] = function (state, ...args) {
+        const newState = { ...state };
+        method.call(newState, ...args);
+        return newState;
+      };
+    }
+  });
+
+  return pureMethods;
+}
+
+const CounterMutable = {
+  count: 0,
+
+  inc: function (amount = 1) {
+    this.count += amount;
+  },
+
+  reset: function () {
+    this.count = 0;
+  },
+};
+
+const pureActions = toPure(CounterMutable);
+const initialState = { count: 5 };
+
+console.log(`Estado Original inicio: ${JSON.stringify(initialState)}`);
+const state1 = pureActions.inc(initialState, 3);
+
+const state2 = pureActions.reset(state1);
+
+console.log("\n--- Resultados Puros ---");
+console.log(`Resultado después de INC (+3): ${JSON.stringify(state1)}`);
+console.log(`Resultado después de RESET:   ${JSON.stringify(state2)}`);
+
+console.log(`Estado Original final: ${JSON.stringify(initialState)}`);
+
 // Ejercicio 20 — Debug avanzado: identificar por qué this es undefined en un proyecto real
 
 // Tarea: Te doy un snippet con fallo; debes localizar el porqué this es undefined y proponer 3 soluciones viables (bind, arrow, closure).

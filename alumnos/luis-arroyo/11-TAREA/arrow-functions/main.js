@@ -1,6 +1,8 @@
 const keys = document.querySelector(".keys");
 const display = document.querySelector(".display");
 const operadores = ["+", "-", "x", "÷", "%"];
+
+
 keys.addEventListener("click", (e) => {
   const button = e.target.closest("button");
   if (button.classList.contains("key-number")) {
