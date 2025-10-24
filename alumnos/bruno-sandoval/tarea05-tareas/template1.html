@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+        }
+
+        .header{
+            background-color: lightgray;
+            height: calc(20vh - 1rem);
+            display: block;
+            margin: 0.5rem;
+            width: calc(100% - 1rem);
+        }
+        .container{
+            display: block;
+            width: calc(100% - 1rem);
+            height: calc(60vh - 1rem);
+            margin: 0.5rem;
+        }
+        .asider{
+            display: inline-block;
+            height: 100%;
+            width: 30%;
+        }
+
+        .article{
+            height: calc(50% - 0.25rem);
+            display: block;
+
+            &:nth-child(1){
+                background-color: lightslategrey;
+                margin-bottom: 0.5rem;
+            }
+            &:nth-child(2){
+                margin-top: 0.5rem;
+                background-color: lightcoral;
+            }
+        }
+
+        .main{
+            display: inline-block;
+            height: 100%;
+            width: calc(70% - 0.5rem);
+            background-color: orange;
+            margin-left: 0.5rem;
+        }
+
+        .footer{
+            background-color: rgb(201, 176, 222);
+            height: calc(20vh - 1rem);
+            margin: 0.5rem;
+            width: calc(100% - 1rem);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header"></div>
+    <div class="container">
+        <section class="asider">
+            <div class="article"></div>
+            <div class="article"></div>
+        </section>
+        <div class="main"></div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

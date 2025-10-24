@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+            --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+            --Grayish-Blue: hsl(212, 23%, 69%);
+            --Light-Grayish-Blue: hsl(210, 46%, 95%);
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--Light-Grayish-Blue);
+        }
+
+        .card {
+            max-width: 300px;
+            background-color: white;
+            border-radius: 0.5rem;
+
+            &>img {
+                width: 100%;
+                border-radius: 0.5rem 0.5rem 0 0;
+            }
+        }
+        .container-body{
+            .body-card {
+                box-sizing: border-box;
+                padding: 1.5rem;
+    
+                &>h1 {
+                    font-size: 1rem;
+                    color: var(--Very-Dark-Grayish-Blue);
+                }
+    
+                &>p {
+                    font-size: 0.81rem;
+                    line-height: 1.2rem;
+                    font-weight: lighter;
+                    color: var(--Desaturated-Dark-Blue);
+                }
+            }
+
+            .footer-card {
+                .container-footer {
+                    gap: 0.5rem;
+                    padding: 1.5rem;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    box-sizing: border-box;
+    
+                    &>img {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border-radius: 50%;
+                    }
+    
+                    &>.info-author {
+                        display: flex;
+                        flex-direction: column;
+    
+                        &>h3 {
+                            margin: 0;
+                            font-size: 1rem;
+                            color: var(--Very-Dark-Grayish-Blue);
+                        }
+    
+                        &>p {
+                            margin: 0;
+                            font-size: 0.9rem;
+                            color: var(--Grayish-Blue);
+                        }
+                    }
+                }
+    
+                .container-footer2 {
+                    display: none;
+                }
+            }
+        }
+
+
+
+        .footer-card:active {
+            .container-footer {
+                display: none;
+            }
+
+            .container-footer2 {
+                padding: 1.5rem;
+                height: auto;
+                box-sizing: border-box;
+                background-color: var(--Desaturated-Dark-Blue);
+                display: flex;
+                align-items: center;
+
+                &>p {
+                    color: var(--Grayish-Blue);
+                    text-transform: uppercase;
+                    font-size: 1rem;
+                }
+
+                &>p>img {
+                    margin-left: 1rem;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        .share {
+            margin-left: auto;
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--Light-Grayish-Blue);
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+
+            &>img {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .card {
+                max-width: 650px;
+                height: 13.94rem;
+                display: flex;
+
+                &>img {
+                    width: 30%;
+                }
+                &>.container-body{
+                    &>.body-card{
+                        padding-bottom: 0;
+                    }
+                    &>.footer-card{
+                        height: 4rem;
+                        &>.container-footer,
+                        &>.container-footer2{
+                            height: 100%;
+                            padding: 0 1.5rem;
+                        }
+                    }
+                }
+                
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="img/ejercicio3/drawers.jpg" alt="">
+            <div class="container-body">
+                <div class="body-card">
+                    <h1>Shift the overall look and feel by adding these wonderful touches to furniture in your home</h1>
+                    <p>Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and
+                        uninviting. I’ve got some simple tips to help you make any room feel complete.</p>
+                </div>
+                <div class="footer-card">
+                    <input type="checkbox" id="share-toggle" hidden>
+                    <div class="container-footer">
+                        <img src="img/ejercicio3/avatar-michelle.jpg" alt="">
+                        <div class="info-author">
+                            <h3>Michelle Appleton</h3>
+                            <p>28 Jun 2020</p>
+                        </div>
+                        <label for="share-toggle" class="share" aria-label="Share">
+                            <img src="img/ejercicio3/icon-share.svg" alt="share-icon">
+                        </label>
+                    </div>
+                    <div class="container-footer2">
+                        <p>share <img src="img/ejercicio3/icon-facebook.svg" alt="icon-facebook"> <img
+                                src="img/ejercicio3/icon-twitter.svg" alt="icon-twitter"> <img
+                                src="img/ejercicio3/icon-pinterest.svg" alt=""></p>
+                        <label for="share-toggle" class="share" aria-label="Close share panel">
+                            <img src="img/ejercicio3/icon-share.svg" alt="share-icon">
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

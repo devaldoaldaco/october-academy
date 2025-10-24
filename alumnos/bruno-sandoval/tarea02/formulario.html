@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Progresivo</title>
+  <style>
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .progress-bar {
+      text-align: center;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 25px;
+    }
+
+    .progress-bar progress {
+      width: 100%;
+      height: 20px;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+    form fieldset{
+      border: none;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+    }
+    form fieldset legend{
+      font-size: 22px;
+      text-align: center;
+    }
+    form fieldset div{
+      margin: 7px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="form-container">
+    <h1>Formulario Progresivo</h1>
+    <div class="progress-bar">
+      <h2>Barra progresiva</h2>
+      <progress id="progress" max="100" value="0"></progress>
+    </div>
+    <form id="multiStepForm">
+      <fieldset class="form-step active">
+        <legend>Datos personales</legend>
+        <div>
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre" id="nombre" placeholder="Ingrese el nombre">
+        </div>
+        <div>
+          <label for="apellido">Apellido</label>
+          <input type="text" name="apellido" id="apellido" placeholder="Ingrese el apellido">
+        </div>
+        <div>
+          <label for="edad">Edad</label>
+          <input type="text" name="edad" id="edad" placeholder="Ingrese la edad">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-step">
+        <legend>Datos profesionales</legend>
+        <div>
+          <label for="profesion">Profesión</label>
+          <input type="text" name="profesion" id="profesion" placeholder="Ingrese la profesión">
+        </div>
+        <div>
+          <label for="experiencia">Años de experiencia</label>
+          <input type="text" name="experiencia" id="experiencia" placeholder="Ingrese los años de experiencia">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-step">
+        <legend>Datos de contacto</legend>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Ingrese su email">
+        </div>
+        <div>
+          <label for="telefono">Teléfono</label>
+          <input type="tel" name="telefono" id="telefono" placeholder="Ingrese su teléfono">
+        </div>
+        <div>
+          <label for="direccion">Dirección</label>
+          <input type="text" name="direccion" id="direccion" placeholder="Ingrese su dirección">
+        </div>
+      </fieldset>
+
+      <fieldset class="form-step">
+        <legend>Preferencias</legend>
+        <div>
+          <label for="idioma">Idioma preferido</label>
+          <input type="text" name="idioma" id="idioma" placeholder="Ingrese su idioma preferido">
+        </div>
+        <button type="submit">Enviar</button>
+      </fieldset>
+
+      <div class="buttons">
+        <button type="button" id="prevBtn">Anterior</button>
+        <button type="button" id="nextBtn">Siguiente</button>
+      </div>
+    </form>
+
+  </section>
+
+  <script>
+    const steps = document.querySelectorAll('.form-step');
+    const progress = document.querySelector('#progress');
+    const prevBtn = document.querySelector('#prevBtn');
+    const nextBtn = document.querySelector('#nextBtn');
+    const form = document.querySelector('#multiStepForm');
+
+    let currentStep = 0;
+
+    function showStep(index) {
+      steps.forEach((step, i) => {
+        step.classList.toggle('active', i === index);
+      });
+      progress.value = ((index + 1) / steps.length) * 100;
+      prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
+      nextBtn.style.display = index === steps.length - 1 ? 'none' : 'inline-block';
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        showStep(currentStep);
+      } else if (currentStep === steps.length - 1) {
+        handleSubmit();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      console.log('Formulario enviado', formData);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      console.log('Formulario enviado', data);
+    });
+
+    showStep(currentStep);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portada</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        header{
+            text-align: center;
+        }
+        header h1{
+            font-size: 90px;
+            margin: 0;
+        }
+        header p{
+            margin: 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /*Noticias*/
+        main{
+            display: flex;
+            flex-direction: row;
+            max-width: 900px;
+            max-height: 1000px;
+            margin: 0 auto;
+        }
+        .primera-seccion, .segunda-seccion, .tercera-seccion{
+            padding: 10px;
+        }
+        .primera-seccion, .tercera-seccion{
+            width: 50vw;
+        }
+        .primera-seccion h2,
+        .tercera-seccion h2{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .primera-seccion p,
+        .segunda-seccion p,
+        .tercera-seccion p{
+            text-align: justify;
+            font-size: 14px;
+        }
+        .segunda-seccion img{
+            width: 100%;
+        }
+        .segunda-seccion h2{
+            font-size: 60px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .segunda-seccion h2 span{
+            font-size: 40px;
+        }
+        .segunda-seccion article div img{
+            width: auto;
+        }
+        .two-columns{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>El Pacifico</h1>
+        <p>El diario Justo y Veraz</p>
+    </header>
+    <main>
+        <section class="primera-seccion">
+            <article>
+                <h2>Mueren 30 000 civiles en Masacre de Changjiao</h2>
+                <img src="img/img3.png" alt="imagen de la masacre">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium, nisi placeat reiciendis voluptatum molestias provident odio. Fugit cumque itaque a debitis molestias pariatur corporis natus. Laboriosam in voluptatem molestiae sequi minus quae nobis, aperiam, veniam suscipit consectetur saepe eaque tempore provident quas doloribus necessitatibus, a omnis at? Maiores, modi molestiae! Molestias esse accusantium ab voluptas maiores voluptatibus nostrum nam neque?</p>
+                <img src="img/img4.png" alt="imagen de la masacre2">
+            </article>
+        </section>
+        <section class="segunda-seccion">
+            <article>
+                <img src="img/img1.png" alt="imagen de la biblioteca">
+                <h2>Biblioteca Nacional al fin sera renovada <span>Incendio consumio cientos de libros viejos e inutiles</span></h2>
+                <div class="two-columns">
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia exercitationem consectetur neque esse repellat impedit eveniet beatae in suscipit porro reiciendis quo dolorum, iste animi consequatur. Magni, aperiam corporis eum cumque tempore laudantium eligendi earum nulla aliquam, architecto, assumenda soluta nisi esse quae. Dolore non assumenda est eum magni numquam suscipit eligendi aliquid facere nisi animi nam odit repudiandae tempora totam, dignissimos maiores modi eius mollitia quia voluptate aspernatur minima? Perspiciatis velit nihil minima doloremque modi temporibus itaque aut atque.</p>
+                    </div>
+                    <div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis vel repudiandae itaque minus qui aliquam nemo praesentium pariatur tenetur eligendi.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat sit, ullam rerum deleniti veritatis laborum assumenda suscipit natus veniam fugiat.</p>
+                        <img src="img/img2.png" alt="imagen de la biblioteca2">
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section class="tercera-seccion">
+            <article>
+                <h2>Cientos de donaciones llegaran gracias al incendio</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores voluptatem temporibus iste, quod explicabo ipsam omnis ex, enim alias repellat iure praesentium beatae impedit dignissimos quaerat fuga ducimus facere sed? Reprehenderit, totam sequi vel distinctio quaerat quisquam quas vitae aliquid?</p>
+                <img src="img/img5.png" alt="imagen de donaciones">
+            </article>
+            <article>
+                <h2>Sovieticos expulsan de Stalingrado a alemanes</h2>
+                <img src="img/img6.png" alt="imagen de la batalla de Stalingrado">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit </p>
+            </article>
+        </section>
+    </main>
+    
+</body>
+</html>

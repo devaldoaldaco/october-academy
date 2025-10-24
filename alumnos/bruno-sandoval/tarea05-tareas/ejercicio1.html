@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container-components {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            width: 70vw;
+        }
+
+        .component {
+            padding: 1.5rem;
+            display: inherit;
+            flex-direction: column;
+            align-items: center;
+            color: #ffffff;
+
+            &:nth-child(1) {
+                background-color: hsl(31, 77%, 52%);
+
+                .footer-component>button {
+                    color: hsl(31, 77%, 52%);
+                }
+            }
+
+            &:nth-child(2) {
+                background-color: hsl(184, 100%, 22%);
+
+                .footer-component>button {
+                    color: hsl(184, 100%, 22%);
+                }
+            }
+
+            &:nth-child(3) {
+                background-color: hsl(179, 100%, 13%);
+
+                .footer-component>button {
+                    color: hsl(179, 100%, 13%);
+                }
+            }
+
+            .header-component {
+                width: 100%;
+                display: inherit;
+                flex-direction: column;
+                justify-content: flex-start;
+                font-size: 1rem;
+            }
+
+            .header-component>img {
+                width: 3rem;
+                height: 2rem;
+            }
+
+            .header-component>h2 {
+                text-transform: uppercase;
+            }
+
+            .body-component {
+                height: 30%;
+            }
+
+            .body-component>p {
+                font-size: 0.7rem;
+                font-weight: lighter;
+                line-height: 1.6rem;
+            }
+
+            .footer-component>button {
+                background-color: #ffffff;
+                font-size: 0.7rem;
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 1.5rem;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .container-components {
+                flex-direction: row;
+                width: 90vw;
+                height: 45vh;
+
+                .component {
+                    height: 100%;
+                    width: 30%;
+
+                    .header-component>h2 {
+                        font-size: 1.5rem;
+                    }
+
+                    .body-component {
+                        height: 50%;
+                    }
+
+                    .body-component>p {
+                        font-size: 0.8rem;
+                        line-height: 1.5rem;
+                    }
+
+                    .footer-component>button {
+                        font-size: 0.8rem;
+                    }
+                }
+
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .container-components {
+                width: 70vw;
+
+                .component {
+                    .header-component>h2 {
+                        font-size: 2rem;
+                    }
+
+                    .body-component {
+                        height: 50%;
+                    }
+
+                    .body-component>p {
+                        font-size: 0.8rem;
+                        line-height: 1.8rem;
+                    }
+
+                    .footer-component>button {
+                        font-size: 0.8rem;
+                        padding: 0.7rem 2rem;
+                    }
+                }
+
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container-components>.component {
+                .body-component>p {
+                    font-size: 1.2rem;
+                    line-height: 2.5rem;
+                }
+                .footer-component>button{
+                    font-size: 1.2rem;
+                }
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-components">
+        <section class="component">
+            <div class="header-component">
+                <img src="img/ejercicio1/icon/icon-sedans.svg" alt="icon-sedan">
+                <h2>Sedans</h2>
+            </div>
+            <div class="body-component">
+                <p>Choose a sedan for its affordability and excellent fuel economy. Ideal for cruising in the city or on
+                    your next road trip.</p>
+            </div>
+            <div class="footer-component">
+                <button>Learn More</button>
+            </div>
+        </section>
+        <section class="component">
+            <div class="header-component">
+                <img src="img/ejercicio1/icon/icon-suvs.svg" alt="icon-suv">
+                <h2>SUVS</h2>
+            </div>
+            <div class="body-component">
+                <p>Take an SUV for its spacious interior, power, and versatility. Perfect for your next family vacation
+                    and off-road adventures.</p>
+            </div>
+            <div class="footer-component">
+                <button>Learn More</button>
+            </div>
+        </section>
+        <section class="component">
+            <div class="header-component">
+                <img src="img/ejercicio1/icon/icon-luxury.svg" alt="icon-luxury">
+                <h2>Luxury</h2>
+            </div>
+            <div class="body-component">
+                <p>Cruise in the best car brands without the bloated prices. Enjoy the enhanced comfort of a luxury
+                    rental and arrive in style.</p>
+            </div>
+            <div class="footer-component">
+                <button>Learn More</button>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

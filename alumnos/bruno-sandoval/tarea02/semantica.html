@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantica</title>
+    <style>
+        header {
+            background-color: #ff0000;
+            height: 25vh;
+        }
+        nav {
+            background-color: #00ff00;
+            height: 50%;
+            margin: 0 20px;
+        }
+        main {
+            display: flex;
+        }
+        aside {
+            background-color: #0000ff;
+            width: 200px;
+            height: 40vh;
+        }
+        article {
+            background-color: #ffff00;
+            flex-grow: 1;
+            height: 40vh;
+        }
+        footer{
+            background-color: #ff00ff;
+            height: 25vh;
+        }
+        p{
+            font-size: 20px;
+        }
+        section {
+            background-color: #00ffff;
+            margin: 10px;
+            height: 15vh;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>Header</p>
+        <nav><p>Nav</p></nav>
+    </header>
+    <main>
+        <aside><p>Aside</p></aside>
+        <article>
+            <p>Article</p>
+            <section><p>Section 1</p></section>
+            <section><p>Section 2</p></section>
+        </article>
+    </main>
+    <footer><p>Footer</p></footer>
+</body>
+</html>

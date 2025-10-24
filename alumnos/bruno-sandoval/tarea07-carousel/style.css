@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url(./img/bg.jpg) no-repeat center center fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    min-width: 500px;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+.card {
+    width: 130px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.3);
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.2rem;
+
+    &>img {
+        box-sizing: border-box;
+        border-radius: 2rem;
+        padding: 0.1rem;
+        border: 2px solid white;
+        width: 60px;
+        height: auto;
+    }
+
+    &>.card-container {
+        height: auto;
+
+        &>.name{
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            margin: 0 0 0.3rem 0;
+            padding: 0;
+        }
+        &>.work{
+            color: white;
+            font-size: 0.7rem;
+            text-align: center;
+            font-weight: lighter;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &>button{
+        border: none;
+        font-size: 0.7rem;
+        background-color: white;
+        border-radius: 0.2rem;
+        padding: 0.25rem 0.5rem;
+        margin-top: 1rem;
+    }
+}
+
+.container-buttons {
+    position: absolute;
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+
+    &>button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        font-weight: lighter;
+    }
+}

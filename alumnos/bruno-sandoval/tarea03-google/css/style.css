@@ -1,0 +1,221 @@
+:root{
+    --font-black: rgba(0, 0, 0, .87);
+}
+
+body{
+    margin: 0;
+    height: 100%;
+}
+
+/* Evita overflow horizontal por padding usando 100% y box-sizing */
+*{box-sizing: border-box}
+header {
+    width: 100%;
+    height: 3.2rem;
+}
+
+.main-nav{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: flex-end;
+    padding: 6px;
+}
+
+.links-header{
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.links-header a{
+    padding-left: 0.95rem;
+    text-decoration: none;
+    color: var(--font-black);
+}
+
+.icons-header{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.icon-app svg{
+    width: 1.8rem;
+}
+
+.icon-name img{
+    height: 3rem;
+}
+
+main{
+    height: calc(100vh - 9.08rem);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-google{
+    width: 17rem;
+    height: 5.75rem;
+}
+
+.search-container{
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-input-box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 40.62rem;
+    height: 3rem;
+    border: 0.06rem solid #dadce0;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.4rem 0.37rem rgb(30, 30, 30, 0.20);
+    background-color: #fff;
+    padding: 0 0.5rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.search-icon-link{
+    width: 2.5rem;
+}
+
+.search-input{
+    flex-grow: 1;
+    border: none;
+    height: 100%;
+    outline: none;
+    font-size: 1rem;
+    padding: 0 0.7rem;
+}
+
+.mic-icon, .lens-icon, .search-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0 8px; 
+    height: auto; 
+    transition: background-color 0.15s;
+}
+
+.search-icon-svg {
+    width: 1.8rem;
+    height: auto;
+}
+
+.lens-icon{
+    width: 2.8rem;
+}
+
+.ai-mode-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f5f6;
+    border: none;
+    border-radius: 1.25rem;
+    padding: 0 0.75rem;
+    height: 2.25rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    font-size: 0.87rem;
+    font-weight: 500;
+    color: #998d8d;
+    white-space: nowrap;
+    transition: background-color 0.15s;
+}
+
+.ai-mode-button:hover {
+    background-color: #dadce0;
+}
+
+.ai-mode-icon {
+    margin-right: 0.4rem;
+    width: 1.2rem;
+    height: auto;
+}
+.buttons-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-google{
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    color: #3c4043d1;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0.68rem 0.25rem;
+    padding: 0 1rem;
+    height: 2.2rem;
+    min-width: 3.37rem;
+}
+
+.text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+}
+
+.text-container a{
+    text-decoration: none;
+    color: #1a0dab;
+}
+
+.text-container p{
+    color: #3c4043d1;
+}
+
+.text-container p span{
+    color: #1a0dab;
+}
+
+footer{
+    width: 100%;
+    height: 5.88rem;
+    background: #f2f2f2;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    color: #1f1f1f;
+    box-sizing: border-box;
+}
+
+.footer-top{
+    border-bottom: 0.06rem solid #dadce0;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.footer-bottom{
+    height: 2.88rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+.footer-bottom .left-footer, .footer-bottom .right-footer{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-bottom .left-footer a, .footer-bottom .right-footer a{
+    text-decoration: none;
+    color: #1f1f1f;
+    font-size: 1.1rem;
+}
+
