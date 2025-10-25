@@ -1,7 +1,4 @@
 const mainContainer = document.querySelector(".mainContainer");
-const button = document.querySelector("#load");
-const image = document.createElement("div");
-const imageName = document.createElement("div");
 let amount = 5;
 let init = 1;
 async function getTotalPokemons() {
