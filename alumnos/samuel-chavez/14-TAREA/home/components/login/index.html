@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <article>
+      <section class="banner-pokemon">
+        <img
+          src="https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470"
+          alt=""
+        />
+      </section>
+
+      <form action="../index.html">
+        <section class="form-header">
+          <h1>EMPECEMOS LA BUSQUEDA!</h1>
+          <span>Por favor registra tu cuenta a continuación</span>
+        </section>
+        <user-field
+          type="email"
+          label="Email"
+          placeholder="Ejm:chavezzsam@gmail.com"
+          idInput ="emailUser"
+        ></user-field>
+        <user-field
+          type="password"
+          label="Contraseña"
+          placeholder="Max. 8 caracteres"
+          idInput ="passwordUser"
+        ></user-field>
+        <login-btn></login-btn>
+        <hr />
+        <section class="form-footer">
+          <login-with logo="images/google.png" name="GOOGLE"></login-with>
+          <login-with logo="images/apple.png" name="APPLE"></login-with>
+        </section>
+      </form>
+    </article>
+    
+    <script src="./login.js"></script>
+    <script src="./formLogin/loginBtn.js"></script>
+    <script src="./formLogin/loginWith.js"></script>
+    <script src="./formLogin/userFields.js"></script>
+  </body>
+</html>
