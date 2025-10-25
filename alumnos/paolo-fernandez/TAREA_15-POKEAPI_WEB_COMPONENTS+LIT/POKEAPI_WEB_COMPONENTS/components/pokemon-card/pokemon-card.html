@@ -1,0 +1,47 @@
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .pokemon-card {
+    perspective: 1000px;
+    height: 550px;
+    cursor: pointer;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .pokemon-card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  pokemon-card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  pokemon-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+  }
+</style>
+
+<div class="pokemon-card">
+  <div class="card-inner">
+    <pokemon-card-front></pokemon-card-front>
+    <pokemon-card-back></pokemon-card-back>
+  </div>
+</div>

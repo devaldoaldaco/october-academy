@@ -1,0 +1,169 @@
+import { css, html, LitElement } from "lit";
+
+import { Router } from '../../router.js';
+
+export class LoginPage extends LitElement {
+  static styles = css`
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :host {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #0F172A;
+      padding: 20px;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 420px;
+      background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .login-header h1 {
+      font-size: 2.5rem;
+      color: #FFF;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .login-header p {
+      color: #94A3B8;
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-label {
+      display: block;
+      color: #94A3B8;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      color: #FFF;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .form-input:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #3B82F6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-input::placeholder {
+      color: #64748B;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+      color: #FFF;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+      margin-top: 10px;
+    }
+
+    .login-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.5);
+    }
+
+    .login-button:active {
+      transform: translateY(0);
+    }
+  `;
+
+  constructor() {
+    super();
+  }
+
+  render() {
+    return html`
+      <div class="login-container">
+        <div class="login-header">
+          <h1>Iniciar Sesión</h1>
+        </div>
+
+        <form id="loginForm" @submit=${ this.handleLoginFormSubmit }>
+          <div class="form-group">
+            <label class="form-label" for="email">Correo electrónico:</label>
+            <input 
+              type="email" 
+              id="email" 
+              class="form-input" 
+              placeholder="ejemplo@email.com"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">Contraseña:</label>
+            <input 
+              type="password" 
+              id="password" 
+              class="form-input" 
+              placeholder="••••••••"
+              required
+            >
+          </div>
+
+          <button type="submit" class="login-button">
+            Ingresar
+          </button>
+        </form>
+      </div>
+    `;
+  }
+
+  handleLoginFormSubmit = (event) => {
+    event.preventDefault();
+    
+    const form = event.currentTarget;
+  
+    const email = form.querySelector('#email').value;
+    const password = form.querySelector('#password').value;
+  
+    if (email !== 'admin@email.com' || password !== 'admin') {
+      alert('Credenciales incorrectas');
+      return;
+    }
+  
+    localStorage.setItem('isLogged', true);
+    
+    setTimeout(() => Router.navigate('pokedex'), 2000);
+  }
+}

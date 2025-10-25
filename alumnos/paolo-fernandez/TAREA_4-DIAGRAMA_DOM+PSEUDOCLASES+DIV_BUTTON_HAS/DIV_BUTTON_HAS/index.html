@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uso de has() CSS</title>
+
+  <style>
+    div {
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div:hover {
+      background-color: aquamarine;
+    }
+    
+    /* LO SIGUIENTE NO VA A FUNCIONAR, CSS NO CUENTA COMO TAL CON SELECTORES PARA ELEMENTOS PADRES O ANTERIORES, SOLO PARA ELEMENTOS HIJOS Y POSTERIORES */
+    button:active {
+      div {
+        background-color: antiquewhite;
+      }
+    }
+    
+    /* EN SU LUGAR, UNA FORMA DE LOGRAR ESTO ES CON EL SELECTOR has(). INCLUIDO EN ÚLTIMAS ACTUALIZACIONES DE CSS  */
+    div:has(button:active) {
+      background-color: antiquewhite;
+
+      button {
+        background-color: #001978;
+        color: white;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button>Click me</button>
+  </div>
+</body>
+</html>
