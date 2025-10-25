@@ -7,17 +7,21 @@ export class ProductCard extends HTMLElement {
         this.attachShadow({mode: 'open'});
     }
 
+    // Ciclo de vida de los web componentes
+    // Se ejecuta cuando el componente se monta en el DOM
     connectedCallback() {
         console.log('se ejecuto connectedCallback');
         this.render();
     }
 
+    // Se ejecuta cuando el componente se desmonta del DOM
     disconnectedCallback() {
         console.log('se ejecuto disconnectedCallback');
     }
 
     static observedAttributes = ['img', 'description', 'price'];
 
+    // Se ejecuta cuando una de las propiedades que estamos observando cambia
     attributeChangedCallback(attr, oldValueAttr, valueAttr) {
         if(attr === 'price') {
             console.log(attr, valueAttr);

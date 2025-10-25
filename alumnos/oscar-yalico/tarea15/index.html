@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <carrosul-images images='["image1.jpg", "image2.jpg", "image3.jpg"]'></carrosul-images> -->
+    <carrosul-images></carrosul-images>
+    <script type="module" src="app.js"></script>
+    <script>
+        const carrusel = document.querySelector('carrosul-images');
+        carrusel.images = [
+            'https://www.shutterstock.com/image-illustration/david-street-style-graphic-designtextile-600nw-2265632523.jpg',
+            'https://theartmarket.es/brave-new-world-nfts/yuga_labs_-_bored_ape_yacht_club_8746-800x800',
+            'https://www.shutterstock.com/image-illustration/david-street-style-graphic-designtextile-600nw-2265632523.jpg',
+            'https://www.shutterstock.com/image-illustration/david-street-style-graphic-designtextile-600nw-2265632523.jpg',
+            'https://www.shutterstock.com/image-illustration/david-street-style-graphic-designtextile-600nw-2265632523.jpg',
+        ];
+    </script>
+</body>
+</html>
+
+<!-- npm i --save-dev @web/dev-server -->
