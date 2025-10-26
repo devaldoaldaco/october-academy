@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+header {
+  nav {
+    display: flex;
+    flex-direction: row;
+    padding: 25px 80px;
+    color: white;
+    font-weight: bold;
+    font-family: "Orbitron", sans-serif;
+    font-style: normal;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #e01414 0%, #ff3333 100%);
+    border-bottom: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    img {
+      width: 3.5rem;
+      cursor: pointer;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: rotate(360deg) scale(1.1);
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 35px;
+
+      li {
+        cursor: pointer;
+        padding: 10px 18px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        letter-spacing: 1.5px;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%) scaleX(0);
+          width: 70%;
+          height: 2px;
+          background: #ffd700;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.15);
+          color: #ffd700;
+          transform: translateY(-3px);
+
+          &::before {
+            transform: translateX(-50%) scaleX(1);
+          }
+        }
+      }
+    }
+
+    div {
+      p {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: end;
+        gap: 12px;
+        padding: 12px 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 25px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.2);
+          transform: scale(1.05);
+        }
+
+        #pikachu {
+          width: 2.8rem;
+          animation: bounce 2s ease-in-out infinite;
+        }
+      }
+    }
+  }
+}
