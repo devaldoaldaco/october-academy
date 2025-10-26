@@ -26,7 +26,7 @@ class GridElement extends HTMLElement {
                 display: block; 
                 padding: 20px 0;
                 margin: 0 auto;
-                max-width: 960px;
+                // max-width: 960px;
             }
             .pokemon-grid {
                 display: grid;
