@@ -141,7 +141,7 @@ const BASE_URL = "https://pokeapi.co/api/v2/pokemon"; //?limit=9&offset=0
 let limit = 20;
 let offset = 0;
 
-const BASE_PATH = "/alumnos/luis-arroyo/15-TAREA";
+const BASE_PATH = "/alumnos/luis-arroyo/15-TAREA/web-components";
 
 const getPokemons = async (limit, offset) => {
   const result = await fetch(`${BASE_URL}?limit=${limit}&offset=${offset}`);
