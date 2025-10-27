@@ -49,17 +49,9 @@ export class FrontCard extends LitElement {
     }
   `;
 
-  /*  setData({ srcPokemon, titlePokemon, idSpanFront }) {
-    this._srcPokemon = srcPokemon;
-    this._titlePokemon = titlePokemon;
-    this._idSpanFront = idSpanFront;
-    this.render();
-    this.addClickListener();
-  } */
-
   spanFrontClickListener() {
     const options = {
-      detail: { id: this.idSpanFront },
+      detail: { id: Number(this.idSpanFront)},
       bubbles: true,
       composed: true,
     };

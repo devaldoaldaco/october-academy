@@ -1,5 +1,4 @@
 export const routes = {
-    LOGIN: "../../index.html",
-    HOME : "../cardPokemon/index.html"
-
+  LOGIN: "../../index.html",
+  HOME: "../../components/cardPokemon/index.html",
 };

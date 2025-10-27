@@ -47,22 +47,7 @@ export class buttonCard extends LitElement {
     this.idButton = 0;
   }
 
-  /* set dataPokemons(value) {
-    this._dataPokemons = value;
-    this.updateChildren();
-  }
 
-  set dataPokemons2(value) {
-    this._dataPokemons2 = value;
-    this.updateChildren();
-  } */
-
-  /* attributeChangedCallback(name, oldValue, newValue) {
-    if (name === "i") {
-      this.idButton = Number(newValue);
-      this.updateChildren();
-    }
-  }*/
 
   render() {
     return html`
@@ -89,14 +74,14 @@ export class buttonCard extends LitElement {
   }
 
   listenEventsFront(e) {
-    const button = this.renderRoot.querySelectorAll("button");
+    const button = this.renderRoot.querySelector("button");
     if (e.detail?.id === this.idButton) {
       button.classList.add("rotate");
     }
   }
 
   listenEventsBack(e) {
-    const button = this.renderRoot.querySelectorAll("button");
+    const button = this.renderRoot.querySelector("button");
     if (e.detail?.id === this.idButton) {
       button.classList.remove("rotate");
     }

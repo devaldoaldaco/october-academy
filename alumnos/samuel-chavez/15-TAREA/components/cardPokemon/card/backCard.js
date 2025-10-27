@@ -1,7 +1,7 @@
 import { LitElement,html,css } from "lit";
 export class BackCard extends LitElement {
   static properties = {
-    abilities: { type: Array },
+    abilities: { type: Array  },
     description: { type: String },
     idSpanBack: { type: Number },
   };
@@ -69,22 +69,14 @@ export class BackCard extends LitElement {
 
   constructor() {
     super();
-    this.abilities = [];
+    this.abilities = {};
     this.idSpanBack = "";
     this.description = "";
   }
 
-  /*setData({ abilities, description, idSpanBack }) {
-    this._abilities = abilities;
-    this._description = description;
-    this._idSpanBack = idSpanBack;
-    this.render();
-    this.addClickListener();
-  }*/
-
   spanBackClickListener() {
     const options = {
-      detail: { id: this.idSpanBack },
+      detail: { id: Number(this.idSpanBack)},
       bubbles: true,
       composed: true,
     };
@@ -97,7 +89,7 @@ export class BackCard extends LitElement {
         <div class="ability">
           <h4>Habilidades:</h4>
           <ul>
-            ${this.abilities.map((a) => `<li>${a}</li>`).join("")}
+             ${this.abilities.map(a => html`<li>${a}</li>`)}
           </ul>
         </div>
 

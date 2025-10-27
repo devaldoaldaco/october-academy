@@ -19,6 +19,7 @@ class LoginWith extends LitElement {
             justify-content: center;
             align-items: center;
             font-family: 'Roboto', sans-serif;
+            font-size: 10px;
             gap: 7px;
             height: 100%;
             padding: 10px 10px;
@@ -36,7 +37,7 @@ class LoginWith extends LitElement {
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         button img{
-            width:1.5rem;
+            width:1.3rem;
         }
         button span{  
             font-weight: 700;

@@ -1,5 +1,5 @@
 import { LitElement, css, html } from "lit";
-import { routes } from "./../../routes";
+import { routes } from "./../../../routes";
 import "./loginBtn";
 import "./loginWith";
 import "./userFields";
@@ -99,9 +99,6 @@ export class FormLoginPokemon extends LitElement {
     });
 
     this.Validate();
-    /*  setTimeout(() => {
-      this.sendValidate();y
-    }, 100); */
   }
 
   Validate() {

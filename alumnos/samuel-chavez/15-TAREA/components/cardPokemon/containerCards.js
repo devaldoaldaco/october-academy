@@ -111,7 +111,7 @@ export class ContainerCards extends LitElement {
             <button-card
               .dataPokemons=${p.data}
               .dataPokemons2=${p.data2}
-              .idButton=${index}
+              idButton=${index}
             ></button-card>
           `
         )}
