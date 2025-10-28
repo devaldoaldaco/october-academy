@@ -117,8 +117,8 @@ export class CardDashboard extends LitElement {
           ${this.product.nombre === "BBVA T-Cambio"
             ? html`<button class="btn-first"><span>Cotiza Aquí</span></button> `
             : html`<button class="btn-first"><span>Pidela Aquí</span></button>`}
-          <button class="btn-second">
-            <span @click=${this._redirectPage}>Conoce más</span>
+          <button @click=${this._redirectPage} class="btn-second">
+            <span>Conoce más</span>
           </button>
         </div>
       </div>
@@ -129,8 +129,8 @@ export class CardDashboard extends LitElement {
     e.preventDefault();
     const options = {
       detail: {
-        page: "details",
-        userId: this.product.id,
+        routeName: "details",
+        productId: this.product.id,
       },
       bubbles: true,
       composed: true,
@@ -138,4 +138,4 @@ export class CardDashboard extends LitElement {
     this.dispatchEvent(new CustomEvent("navigate", options));
   }
 }
-window.customElements.define("dashboard-card", CardDashboard);
+window.customElements.define("card-dashboard", CardDashboard);

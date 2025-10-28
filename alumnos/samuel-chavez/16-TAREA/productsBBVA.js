@@ -26,7 +26,7 @@ export const productosBBVA = [
     descripcion:
       "Solicita tu tarjeta 100% online y disfruta tus compras de inmediato.",
     resumen: {
-      lineaMaxima: "S/ 15,000",
+      lineaMaxima: "Accede a una amplia línea de crédito con flexibilidad de pago y respaldo BBVA.",
       tasaInteres: "TCEA desde 35%",
       tipoTarjeta: ["Clásica", "Oro", "Signature"],
     },

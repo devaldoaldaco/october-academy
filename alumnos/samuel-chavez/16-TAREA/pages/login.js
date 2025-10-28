@@ -5,7 +5,7 @@ export class Login extends LitElement {
   static styles = css`
     :host {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-      "Helvetica Neue", Arial, sans-serif;
+        "Helvetica Neue", Arial, sans-serif;
       background: #14549c;
       display: flex;
       height: 100vh;
@@ -291,47 +291,6 @@ export class Login extends LitElement {
       box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
     }
 
-    /* Success Message */
-    .success-message {
-      display: none;
-      text-align: center;
-      padding: 32px 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-    }
-
-    .success-message.show {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .success-icon {
-      width: 48px;
-      height: 48px;
-      background: #059669;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      color: white;
-      margin: 0 auto 16px;
-    }
-
-    .success-message h3 {
-      color: #1a202c;
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-    }
-
-    .success-message p {
-      color: #718096;
-      font-size: 14px;
-    }
-
-    /* Signup Link */
     .signup-link {
       text-align: center;
     }
@@ -382,8 +341,8 @@ export class Login extends LitElement {
       <div class="login-container">
         <div class="login-card">
           <div class="login-header">
-            <h2>Sign In</h2>
-            <p>Enter your credentials to continue</p>
+            <h2>Inicie sesión</h2>
+            <p>A continuación ingrese sus credenciales</p>
           </div>
 
           <form class="login-form" id="loginForm" novalidate>
@@ -398,7 +357,6 @@ export class Login extends LitElement {
                 />
                 <label for="email">Email</label>
               </div>
-              <span class="error-message" id="emailError"></span>
             </div>
 
             <div class="form-group">
@@ -410,7 +368,7 @@ export class Login extends LitElement {
                   required
                   autocomplete="current-password"
                 />
-                <label for="password">Password</label>
+                <label for="password">Contraseña</label>
                 <button
                   type="button"
                   class="password-toggle"
@@ -420,7 +378,6 @@ export class Login extends LitElement {
                   <span class="toggle-icon"></span>
                 </button>
               </div>
-              <span class="error-message" id="passwordError"></span>
             </div>
 
             <div class="form-options">
@@ -428,10 +385,12 @@ export class Login extends LitElement {
                 <input type="checkbox" id="remember" name="remember" />
                 <label for="remember" class="checkbox-label">
                   <span class="checkmark"></span>
-                  Remember me
+                  Recuerdame
                 </label>
               </div>
-              <a href="#" class="forgot-password">Forgot password?</a>
+              <a href="#" class="forgot-password"
+                >Has olvidado tu contraseña?</a
+              >
             </div>
 
             <button
@@ -439,19 +398,13 @@ export class Login extends LitElement {
               type="submit"
               class="login-btn"
             >
-              <span class="btn-text">Sign In</span>
+              <span class="btn-text"> Iniciar sesión</span>
               <span class="btn-loader"></span>
             </button>
           </form>
 
           <div class="signup-link">
-            <p>Don't have an account? <a href="#">Create one</a></p>
-          </div>
-
-          <div class="success-message" id="successMessage">
-            <div class="success-icon">✓</div>
-            <h3>Welcome back!</h3>
-            <p>Redirecting to your dashboard...</p>
+            <p>¿No tienes una cuenta? <a href="#">Create una!</a></p>
           </div>
         </div>
       </div>
@@ -465,18 +418,18 @@ export class Login extends LitElement {
     if (this.validateCredentials(email, password)) {
       this._saveCredentials(email, password);
       const options = {
-        detail: "dashboard",
+        detail: { routeName: "dashboard" },
         bubbles: true,
         composed: true,
       };
       this.dispatchEvent(new CustomEvent("navigate", options));
-    } 
+    }
   }
 
   _saveCredentials(email, password) {
     const credentials = {
       email: email,
-      password: password,
+      isLoggedIn: true,
     };
     localStorage.setItem("userCredentials", JSON.stringify(credentials));
   }

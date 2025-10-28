@@ -13,7 +13,7 @@ export class Dashboard extends LitElement {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      margin-top: 90px;
+      margin-top: 110px;
       align-items: center;
       justify-content: center;
     }
@@ -35,12 +35,6 @@ export class Dashboard extends LitElement {
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       width: 80%;
-    }
-
-    .button-container {
-      display: flex;
-      justify-content: center;
-      padding: 20px;
     }
 
     #load {
@@ -81,22 +75,16 @@ export class Dashboard extends LitElement {
 
   render() {
     return html`
-      <dashboard-nav></dashboard-nav>
       ${this.messageProducts
         ? html`<div class="message-products">
             <p>${this.messageProducts}</p>
           </div>`
         : null}
       <section class="cards">
-        ${this._data.map((array, index) => {
-          return html`<dashboard-card
-            .product=${array}
-          ></dashboard-card>`;
+        ${this._data.map((array) => {
+          return html`<card-dashboard .product=${array}></card-dashboard>`;
         })}
       </section>
-      <div class="button-container">
-        <button id="load">Cargar Productos</button>
-      </div>
     `;
   }
 }

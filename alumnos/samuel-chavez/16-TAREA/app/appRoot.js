@@ -4,7 +4,7 @@ import "../pages/dashboard";
 import "../pages/details";
 export class AppRoot extends LitElement {
   static properties = {
-    _page: { type: String, state: true },
+    _page: { type: Object, state: true },
   };
 
   static styles = css`
@@ -16,7 +16,7 @@ export class AppRoot extends LitElement {
   `;
   constructor() {
     super();
-    this._page = "dashboard";
+    this._page = { routeName: "dashboard" };
   }
 
   connectedCallback() {
@@ -24,23 +24,36 @@ export class AppRoot extends LitElement {
     window.addEventListener("navigate", this.assignEventDetail.bind(this));
   }
 
+  disconnectedCallback() {
+    window.removeEventListener("navigate", this.assignEventDetail.bind(this));
+    super.disconnectedCallback();
+  }
+
   assignEventDetail(e) {
     this._page = e.detail;
   }
 
   render() {
-    return html` <main>${this.renderPage()}</main> `;
+    return html`
+      ${this._page.routeName === "dashboard" || this._page.routeName === "details"
+        ? html`<dashboard-nav></dashboard-nav>`
+        : null}
+      <main>${this.renderPage()}</main>
+    `;
   }
 
   renderPage() {
-    console.log("details en renderPage es", this._page);
-    switch (this._page) {
+    switch (this._page.routeName) {
       case "login":
         return html`<view-login></view-login>`;
       case "dashboard":
-        return html`<view-dashboard messageProducts="Conoce los productos que puedes contratar online"></view-dashboard>`;
+        return html`<view-dashboard
+          messageProducts="Conoce los productos que puedes contratar online"
+        ></view-dashboard>`;
       case "details":
-        return html`<view-details idProduct = ""></view-details>`;
+        return html`<view-details
+          idProduct="${this._page.productId}"
+        ></view-details>`;
       default:
         return html`<view-login></view-login>`;
     }
