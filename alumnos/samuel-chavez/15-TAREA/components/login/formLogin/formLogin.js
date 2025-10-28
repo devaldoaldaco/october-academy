@@ -80,8 +80,8 @@ export class FormLoginPokemon extends LitElement {
       <login-btn></login-btn>
       <hr />
       <section class="form-footer">
-        <login-with logo="src/google.png" name="GOOGLE"></login-with>
-        <login-with logo="src/apple.png" name="APPLE"></login-with>
+        <login-with logo="assets/google.png" name="GOOGLE"></login-with>
+        <login-with logo="assets/apple.png" name="APPLE"></login-with>
       </section>
     </form>`;
   }
