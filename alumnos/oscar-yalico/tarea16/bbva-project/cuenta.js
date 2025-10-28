@@ -3,11 +3,13 @@ import { LitElement, html, css } from 'lit';
 class BankAccount extends LitElement {
   static properties = {
     showBalance: { type: Boolean },
+    selectedTransaction: { type: Object },
   };
 
   static styles = css`
     :host {
       display: block;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     .balance-card {
@@ -110,10 +112,12 @@ class BankAccount extends LitElement {
       align-items: center;
       padding: 0.8rem 0;
       border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      transition: 0.2s;
     }
 
-    .transaction-item:last-child {
-      border-bottom: none;
+    .transaction-item:hover {
+      background: #f8f8f8;
     }
 
     .transaction-desc {
@@ -138,28 +142,77 @@ class BankAccount extends LitElement {
     .transaction-amount.expense {
       color: #dc2626;
     }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .modal {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal h4 {
+      margin-top: 0;
+    }
+
+    .modal button {
+      background: #003c81ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      float: right;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
   `;
 
   constructor() {
     super();
     this.showBalance = true;
+    this.selectedTransaction = null;
   }
 
   toggleBalance() {
     this.showBalance = !this.showBalance;
   }
 
+  openTransactionDetail(tx) {
+    this.selectedTransaction = tx;
+  }
+
+  closeModal() {
+    this.selectedTransaction = null;
+  }
+
   formatCurrency(amount) {
     return new Intl.NumberFormat('es-PE', {
       style: 'currency',
-      currency: 'PEN',
+      currency: 'USD',
     }).format(Math.abs(amount));
   }
 
   render() {
     const balance = 15847.32;
     const accountNumber = '**** **** **** 4829';
-    
+
     const stats = {
       ingresos: 3700.00,
       gastos: 487.19,
@@ -175,7 +228,6 @@ class BankAccount extends LitElement {
     ];
 
     return html`
-      <!-- Balance Card -->
       <div class="balance-card">
         <div class="balance-header">
           <div>
@@ -191,7 +243,6 @@ class BankAccount extends LitElement {
         <div class="account-number">${accountNumber}</div>
       </div>
 
-      <!-- Stats Grid -->
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-label">Ingresos del mes</div>
@@ -207,12 +258,11 @@ class BankAccount extends LitElement {
         </div>
       </div>
 
-      <!-- Transactions -->
       <div class="transactions-card">
         <h3>Movimientos Recientes</h3>
         <div class="transactions-list">
           ${transactions.map(tx => html`
-            <div class="transaction-item">
+            <div class="transaction-item" @click=${() => this.openTransactionDetail(tx)}>
               <div>
                 <div class="transaction-desc">${tx.description}</div>
                 <div class="transaction-date">${tx.date}</div>
@@ -224,6 +274,19 @@ class BankAccount extends LitElement {
           `)}
         </div>
       </div>
+
+      ${this.selectedTransaction ? html`
+        <div class="modal-backdrop" @click=${this.closeModal}>
+          <div class="modal" @click=${e => e.stopPropagation()}>
+            <h4>Detalle de Transacción</h4>
+            <p><strong>Descripción:</strong> ${this.selectedTransaction.description}</p>
+            <p><strong>Fecha:</strong> ${this.selectedTransaction.date}</p>
+            <p><strong>Tipo:</strong> ${this.selectedTransaction.type === 'ingresos' ? 'Ingreso' : 'Gasto'}</p>
+            <p><strong>Monto:</strong> ${this.formatCurrency(this.selectedTransaction.amount)}</p>
+            <button @click=${this.closeModal}>Cerrar</button>
+          </div>
+        </div>
+      ` : ''}
     `;
   }
 }
