@@ -1,0 +1,91 @@
+:root {
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #f3f4f6;
+    color: #0f172a;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 24px;
+}
+
+.container {
+    width: 360px;
+}
+
+.calc {
+    border-radius: 12px;
+    padding: 12px;
+    background: white;
+    box-shadow: 0 6px 20px rgba(2, 6, 23, 0.08);
+}
+
+.display {
+    background: #0b1220;
+    color: #e6eef6;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    min-height: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.display .history {
+    font-size: 14px;
+    color: #9aa6b2;
+    min-height: 18px;
+}
+
+.display .total {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.btn {
+    padding: 16px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    background: #eef2f7;
+    transition: transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn.op {
+    background: #f7d794;
+}
+
+.btn.equals {
+    grid-column: 4/5;
+    background: #06b6d4;
+    color: white;
+}
+
+.btn.clear {
+    background: #fb7185;
+    color: white;
+}
+
+.btn.wide {
+    grid-column: 1/3;
+}

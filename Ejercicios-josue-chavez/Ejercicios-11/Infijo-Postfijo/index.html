@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor Infijo a Postfijo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">        
+        <div class="input-group">
+            <label>Expresión Infija:</label>
+            <input type="text" id="expresion" placeholder="Ejemplo: 3+4*2 o (3+4)*2">
+            <p class="nota">Puedes escribir con o sin espacios</p>
+        </div>
+        
+        <button onclick="convertir()">Convertir</button>
+        
+        <div class="resultado" id="resultado">
+            <h3>Expresión Postfija:</h3>
+            <p id="salida"></p>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

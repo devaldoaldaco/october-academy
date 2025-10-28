@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Memorama</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" role="application">
+        <header>
+            <div class="title">
+                <h1>Memorama - 2 jugadores</h1>
+                <div class="scoreboard" aria-hidden="true">
+                <div id="p1" class="player active">
+                    <span class="label">Jugador 1</span>
+                    <span class="pts" id="score1">0</span>
+                </div>
+                <div id="p2" class="player">
+                    <span class="label">Jugador 2</span>
+                    <span class="pts" id="score2">0</span>
+                </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="restart">Reiniciar</button>
+                <button id="shuffle" class="small">Barajar</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="board-wrap">
+                <section id="board" class="board" aria-label="Tablero de memorama"></section>
+            </div>
+        </main>
+
+        <footer>
+            <div class="info">Turno: <strong id="current">Jugador 1</strong></div>
+            <div class="info">Parejas encontradas: <span id="found">0</span>/8</div>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <div id="modal" class="modal" role="dialog" aria-modal="true">
+        <div class="modal-card">
+        <h2 id="modal-title">¡Ganador!</h2>
+        <p id="modal-body"></p>
+        <button id="play-again">Volver a jugar</button>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

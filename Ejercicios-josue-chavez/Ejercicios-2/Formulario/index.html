@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="contenedor">
+
+    <input type="radio" name="paso" id="paso1" checked>
+    <input type="radio" name="paso" id="paso2">
+    <input type="radio" name="paso" id="paso3">
+
+    <div class="barra">
+      <div class="progreso"></div>
+    </div>
+
+    <form>
+      <fieldset>
+        <legend>Datos Generales</legend>
+        <label for="dni">DNI</label>
+        <input type="text" id="dni" name="dni" placeholder="Ingrese su número de DNI">
+
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="name" placeholder="Ingrese su nombre completo">
+
+        <label for="lastname">Apellidos</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Ingrese sus apellidos">
+
+        <label for="age">Edad</label>
+        <input type="number" id="age" name="age" placeholder="Ingrese su edad">
+
+        <div class="botones">
+          <span></span>
+          <label class="siguiente" for="paso2">Siguiente</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Datos Económicos</legend>
+        <label for="occupation">Ocupación</label>
+        <input type="text" id="occupation" name="occupation" placeholder="Ingrese su ocupación">
+
+        <label for="income">Ingresos</label>
+        <input type="number" id="income" name="income" placeholder="Digite sus ingresos">
+
+        <div class="botones">
+          <label class="anterior" for="paso1">Anterior</label>
+          <label class="siguiente" for="paso3">Siguiente</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Datos Familiares</legend>
+        <label for="status">Estado civil</label>
+        <input type="text" id="status" name="status" placeholder="Ingrese su estado civil">
+
+        <label for="children">Número de hijos</label>
+        <input type="number" id="children" name="children" placeholder="Ingrese su número de hijos">
+
+        <div class="botones">
+          <label class="anterior" for="paso2">Anterior</label>
+          <input type="submit" value="Enviar">
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</body>
+</html>

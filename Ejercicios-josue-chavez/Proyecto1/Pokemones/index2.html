@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pokédex Interactivo (Carga perezosa)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align:center; color:white; font-size:3.2rem; margin-bottom:30px;
+            text-shadow:2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .pokemon-grid {
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+            gap:30px;
+            max-width:1400px;
+            margin:0 auto;
+        }
+        .pokemon-card { height:500px; cursor:pointer; perspective:1000px; position:relative; }
+        .card-inner { position:relative; width:100%; height:100%; transition:transform .6s; transform-style:preserve-3d; }
+        .pokemon-card.flipped .card-inner { transform:rotateY(180deg); }
+        .card-front,.card-back {
+            position:absolute; width:100%; height:100%; backface-visibility:hidden;
+            display:flex; flex-direction:column; justify-content:center; align-items:center;
+            border-radius:20px; padding:20px; box-shadow:0 10px 30px rgba(0,0,0,.3);
+        }
+        .card-front { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:white; gap:15px; }
+        .card-back { background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%); color:white; transform:rotateY(180deg); padding:25px; justify-content:flex-start; overflow-y:auto; }
+        .pokemon-image { width:180px; height:180px; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,.2)); }
+        .pokemon-name { font-size:1.8rem; font-weight:bold; text-transform:capitalize; text-shadow:1px 1px 2px rgba(0,0,0,.2); }
+        .pokemon-id { font-size:.9rem; opacity:.9; }
+        .pokemon-types { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+        .type-badge { padding:6px 12px; border-radius:20px; font-size:.85rem; font-weight:bold; text-transform:capitalize; background:rgba(255,255,255,.3); border:2px solid rgba(255,255,255,.5); }
+        .card-back-content { width:100%; display:flex; flex-direction:column; gap:20px; }
+        .stats-section, .abilities-section { background:rgba(255,255,255,.15); padding:15px; border-radius:12px; backdrop-filter:blur(10px); }
+        .stats-title, .abilities-title { font-size:1.1rem; font-weight:bold; margin-bottom:12px; text-transform:uppercase; letter-spacing:1px; border-bottom:2px solid rgba(255,255,255,.3); padding-bottom:8px; }
+        .stat-item { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; font-size:.95rem; }
+        .stat-value { background:rgba(255,255,255,.25); padding:4px 12px; border-radius:8px; font-weight:bold; min-width:50px; text-align:center; }
+        .ability-item { background:rgba(255,255,255,.2); padding:8px 12px; border-radius:8px; margin-bottom:8px; font-size:.9rem; text-transform:capitalize; border-left:3px solid rgba(255,255,255,.5); }
+        /* Botón flotante inferior */
+        .load-more-container {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 22px;
+            z-index: 999;
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+        #loadMoreBtn {
+            background: linear-gradient(90deg,#ff7a18,#af002d);
+            color:white;
+            border:none;
+            padding:12px 18px;
+            border-radius:999px;
+            font-weight:700;
+            cursor:pointer;
+            box-shadow:0 8px 20px rgba(0,0,0,.25);
+            display:flex;
+            align-items:center;
+            gap:10px;
+        }
+        #loadMoreBtn[disabled] { opacity:.6; cursor:default; }
+        #batchInfo {
+            color:white;
+            font-weight:600;
+            text-shadow:1px 1px 2px rgba(0,0,0,.25);
+            background:rgba(0,0,0,.15);
+            padding:8px 12px;
+            border-radius:12px;
+        }
+        /* Sentinel (invisible) */
+        #sentinel { height:1px; width:100%; }
+        @media (max-width:768px) {
+            h1 { font-size:2.5rem; }
+            .pokemon-grid { grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:20px; }
+            .pokemon-card { height:450px; }
+        }
+        @media (max-width:480px) {
+            h1 { font-size:2rem; }
+            .pokemon-grid { grid-template-columns:1fr; }
+            .pokemon-card { height:450px; }
+            .load-more-container { bottom:12px; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Pokédex Interactivo</h1>
+    <div class="pokemon-grid" id="pokemonGrid" aria-live="polite"></div>
+
+    <!-- sentinel en fondo para detectar que llegamos al final -->
+    <div id="sentinel"></div>
+
+    <!-- botón flotante -->
+    <div class="load-more-container" id="loadContainer" style="display:none;">
+        <div id="batchInfo"></div>
+        <button id="loadMoreBtn">Mostrar 10 más</button>
+    </div>
+
+    <script>
+        // Configuración de paginación
+        const pokemonGrid = document.getElementById('pokemonGrid');
+        const loadContainer = document.getElementById('loadContainer');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const batchInfo = document.getElementById('batchInfo');
+        const sentinel = document.getElementById('sentinel');
+
+        const TOTAL_POKEMON = 150; // o la cantidad que quieras limitar
+        const BATCH_SIZE = 10;     // cantidad por click
+        let offset = 0;            // desde dónde pedir
+        let loading = false;       // controla doble petición
+
+        // Colores por tipo (mismo mapa que tenías)
+        function getTypeColor(type) {
+            const typeColors = {
+                normal:'#A8A878', fire:'#F08030', water:'#6890F0', electric:'#F8D030',
+                grass:'#78C850', ice:'#98D8D8', fighting:'#C03028', poison:'#A040A0',
+                ground:'#E0C068', flying:'#A890F0', psychic:'#F85888', bug:'#A8B820',
+                rock:'#B8A038', ghost:'#705898', dragon:'#7038F8', dark:'#705848',
+                steel:'#B8B8D0', fairy:'#EE99AC'
+            };
+            return typeColors[type] || '#A8A878';
+        }
+
+        function createPokemonCard(pokemon) {
+            const card = document.createElement('div');
+            card.className = 'pokemon-card';
+
+            const types = pokemon.types.map(t => t.type.name);
+            const abilities = pokemon.abilities.map(a => a.ability.name);
+            const stats = pokemon.stats;
+
+            const statsHTML = stats.map(stat => `
+                <div class="stat-item">
+                    <span class="stat-label">${stat.stat.name}</span>
+                    <span class="stat-value">${stat.base_stat}</span>
+                </div>`).join('');
+
+            const abilitiesHTML = abilities.map(a => `<div class="ability-item">${a}</div>`).join('');
+
+            card.innerHTML = `
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="${pokemon.sprites.other['official-artwork'].front_default || pokemon.sprites.front_default}" alt="${pokemon.name}" class="pokemon-image">
+                        <div class="pokemon-name">${pokemon.name}</div>
+                        <div class="pokemon-id">#${String(pokemon.id).padStart(4,'0')}</div>
+                        <div class="pokemon-types">
+                            ${types.map(type => `<span class="type-badge" style="background-color:${getTypeColor(type)}; border-color:${getTypeColor(type)};">${type}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-back-content">
+                            <div class="stats-section">
+                                <div class="stats-title">Estadísticas</div>
+                                ${statsHTML}
+                            </div>
+                            <div class="abilities-section">
+                                <div class="abilities-title">Habilidades</div>
+                                ${abilitiesHTML}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        async function fetchPokemonBatch(offset, limit) {
+            // obtiene la lista con name y url
+            const listUrl = `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`;
+            try {
+                const res = await fetch(listUrl);
+                if (!res.ok) throw new Error('Error lista: ' + res.status);
+                const json = await res.json();
+                // solicitar detalles en paralelo
+                const detailPromises = json.results.map(r => fetch(r.url).then(r2 => {
+                    if (!r2.ok) throw new Error('Detalle error ' + r2.status);
+                    return r2.json();
+                }));
+                const details = await Promise.all(detailPromises);
+                return details;
+            } catch (err) {
+                console.error('fetchPokemonBatch error', err);
+                return [];
+            }
+        }
+
+        async function loadNextBatch() {
+            if (loading) return;
+            if (offset >= TOTAL_POKEMON) return; // ya cargaste todo
+            loading = true;
+            loadMoreBtn.disabled = true;
+            loadMoreBtn.textContent = 'Cargando...';
+
+            const remaining = Math.max(0, TOTAL_POKEMON - offset);
+            const limit = Math.min(BATCH_SIZE, remaining);
+
+            try {
+                const pokemons = await fetchPokemonBatch(offset, limit);
+                // agrega tarjetas al grid
+                pokemons.forEach(p => {
+                    const card = createPokemonCard(p);
+                    card.addEventListener('click', function() {
+                        this.classList.toggle('flipped');
+                    });
+                    pokemonGrid.appendChild(card);
+                });
+                offset += limit;
+                updateBatchInfo();
+
+                // si ya cargaste todo, ocultamos el botón
+                if (offset >= TOTAL_POKEMON) {
+                    loadContainer.style.display = 'none';
+                } else {
+                    loadContainer.style.display = 'flex';
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Ocurrió un error cargando Pokémons.');
+            } finally {
+                loading = false;
+                loadMoreBtn.disabled = false;
+                loadMoreBtn.textContent = `Mostrar ${BATCH_SIZE} más`;
+            }
+        }
+
+        function updateBatchInfo() {
+            batchInfo.textContent = `Mostrando ${Math.min(offset, TOTAL_POKEMON)} de ${TOTAL_POKEMON}`;
+        }
+
+        // cuando el sentinel aparece en viewport, mostramos el botón
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // si aún quedan por cargar
+                    if (offset < TOTAL_POKEMON) {
+                        loadContainer.style.display = 'flex';
+                    } else {
+                        loadContainer.style.display = 'none';
+                    }
+                } else {
+                    // puedes ocultarlo si deseas cuando no se esté en fondo
+                    // loadContainer.style.display = 'none';
+                }
+            });
+        }, { root: null, rootMargin: '0px', threshold: 0.1 });
+
+        io.observe(sentinel);
+
+        // click en el botón
+        loadMoreBtn.addEventListener('click', loadNextBatch);
+
+        // carga inicial (cargar la primera página)
+        (async function init() {
+            updateBatchInfo();
+            // puedes llamar a loadNextBatch() inmediatamente o esperar a que el usuario haga scroll
+            await loadNextBatch();
+        })();
+
+        // accesibilidad: si el usuario hace scroll al final rápido, también podrías auto-cargar:
+        // Si quieres auto-cargar en vez de requerir click, descomenta:
+        
+        const autoIo = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !loading && offset < TOTAL_POKEMON) {
+                    loadNextBatch();
+                }
+            });
+        }, { root: null, rootMargin: '200px', threshold: 0.1 });
+        autoIo.observe(sentinel);
+        
+    </script>
+</body>
+</html>

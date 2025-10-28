@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Carrusel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="carrusel" aria-label="Carrusel de imágenes">
+
+        <input type="radio" name="slide" id="s1" checked>
+        <input type="radio" name="slide" id="s2">
+        <input type="radio" name="slide" id="s3">
+        <input type="radio" name="slide" id="s4">
+        <input type="radio" name="slide" id="s5">
+
+        <div class="viewport" role="region" aria-live="polite" aria-label="Galería principal">
+            <div class="slides">
+                <figure class="slide s1" aria-hidden="false">
+                    <img src="https://picsum.photos/id/1018/1600/900" alt="Montañas y lago al amanecer">
+                    <figcaption class="caption">Montañas y lago</figcaption>
+
+                    <label class="nav prev" for="s5" aria-label="Ir a la imagen anterior">
+                        <svg viewBox="0 0 20 20"><path d="M12.7 15.3a1 1 0 0 1-1.4 0L6.3 10.3a1 1 0 0 1 0-1.4L11.3 3.7A1 1 0 0 1 12.7 5.1L8.6 9.2 12.7 13.3a1 1 0 0 1 0 1.4z"/></svg>
+                    </label>
+                    <label class="nav next" for="s2" aria-label="Ir a la siguiente imagen">
+                        <svg viewBox="0 0 20 20"><path d="M7.3 4.7a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4l-5 5A1 1 0 0 1 7.3 15.3L11.4 11.2 7.3 7.1a1 1 0 0 1 0-1.4z"/></svg>
+                    </label>
+                </figure>
+
+                <figure class="slide s2" aria-hidden="true">
+                    <img src="https://picsum.photos/id/1015/1600/900" alt="Playa y palmeras al atardecer">
+                    <figcaption class="caption">Playa al atardecer</figcaption>
+                    <label class="nav prev" for="s1" aria-label="Ir a la imagen anterior">
+                        <svg viewBox="0 0 20 20"><path d="M12.7 15.3a1 1 0 0 1-1.4 0L6.3 10.3a1 1 0 0 1 0-1.4L11.3 3.7A1 1 0 0 1 12.7 5.1L8.6 9.2 12.7 13.3a1 1 0 0 1 0 1.4z"/></svg>
+                    </label>
+                    <label class="nav next" for="s3" aria-label="Ir a la siguiente imagen">
+                        <svg viewBox="0 0 20 20"><path d="M7.3 4.7a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4l-5 5A1 1 0 0 1 7.3 15.3L11.4 11.2 7.3 7.1a1 1 0 0 1 0-1.4z"/></svg>
+                    </label>
+                </figure>
+
+                <figure class="slide s3" aria-hidden="true">
+                    <img src="https://picsum.photos/id/1021/1600/900" alt="Bosque frondoso con niebla">
+                    <figcaption class="caption">Bosque con niebla</figcaption>
+                    <label class="nav prev" for="s2" aria-label="Ir a la imagen anterior">
+                        <svg viewBox="0 0 20 20"><path d="M12.7 15.3a1 1 0 0 1-1.4 0L6.3 10.3a1 1 0 0 1 0-1.4L11.3 3.7A1 1 0 0 1 12.7 5.1L8.6 9.2 12.7 13.3a1 1 0 0 1 0 1.4z"/></svg>
+                    </label>
+                    <label class="nav next" for="s4" aria-label="Ir a la siguiente imagen">
+                        <svg viewBox="0 0 20 20"><path d="M7.3 4.7a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4l-5 5A1 1 0 0 1 7.3 15.3L11.4 11.2 7.3 7.1a1 1 0 0 1 0-1.4z"/></svg>
+                    </label>
+                </figure>
+
+                <figure class="slide s4" aria-hidden="true">
+                    <img src="https://picsum.photos/id/1035/1600/900" alt="Ciudad de noche con luces">
+                    <figcaption class="caption">Ciudad nocturna</figcaption>
+                    <label class="nav prev" for="s3" aria-label="Ir a la imagen anterior">
+                        <svg viewBox="0 0 20 20"><path d="M12.7 15.3a1 1 0 0 1-1.4 0L6.3 10.3a1 1 0 0 1 0-1.4L11.3 3.7A1 1 0 0 1 12.7 5.1L8.6 9.2 12.7 13.3a1 1 0 0 1 0 1.4z"/></svg>
+                    </label>
+                    <label class="nav next" for="s5" aria-label="Ir a la siguiente imagen">
+                        <svg viewBox="0 0 20 20"><path d="M7.3 4.7a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4l-5 5A1 1 0 0 1 7.3 15.3L11.4 11.2 7.3 7.1a1 1 0 0 1 0-1.4z"/></svg>
+                    </label>
+                </figure>
+
+                <figure class="slide s5" aria-hidden="true">
+                    <img src="https://picsum.photos/id/1043/1600/900" alt="Caminos rurales en la montaña">
+                    <figcaption class="caption">Camino rural</figcaption>
+                    <label class="nav prev" for="s4" aria-label="Ir a la imagen anterior">
+                        <svg viewBox="0 0 20 20"><path d="M12.7 15.3a1 1 0 0 1-1.4 0L6.3 10.3a1 1 0 0 1 0-1.4L11.3 3.7A1 1 0 0 1 12.7 5.1L8.6 9.2 12.7 13.3a1 1 0 0 1 0 1.4z"/></svg>
+                    </label>
+                    <label class="nav next" for="s1" aria-label="Ir a la siguiente imagen">
+                        <svg viewBox="0 0 20 20"><path d="M7.3 4.7a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4l-5 5A1 1 0 0 1 7.3 15.3L11.4 11.2 7.3 7.1a1 1 0 0 1 0-1.4z"/></svg>
+                    </label>
+                </figure>
+
+            </div>
+        </div>
+
+        <div class="controls" role="tablist" aria-label="Selector de imágenes">
+            <label class="thumb" for="s1" tabindex="0" role="tab" aria-controls="s1">
+                <img src="https://picsum.photos/id/1018/200/200" alt="Miniatura montañas">
+            </label>
+            <label class="thumb" for="s2" tabindex="0" role="tab" aria-controls="s2">
+                <img src="https://picsum.photos/id/1015/200/200" alt="Miniatura playa">
+            </label>
+            <label class="thumb" for="s3" tabindex="0" role="tab" aria-controls="s3">
+                <img src="https://picsum.photos/id/1021/200/200" alt="Miniatura bosque">
+            </label>
+            <label class="thumb" for="s4" tabindex="0" role="tab" aria-controls="s4">
+                <img src="https://picsum.photos/id/1035/200/200" alt="Miniatura ciudad">
+            </label>
+            <label class="thumb" for="s5" tabindex="0" role="tab" aria-controls="s5">
+                <img src="https://picsum.photos/id/1043/200/200" alt="Miniatura camino">
+            </label>
+        </div>
+
+    </div>
+
+</body>
+</html>

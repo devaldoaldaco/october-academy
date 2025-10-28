@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(180deg, #eef2fb 0%, #f8fbff 100%);
+    color: #0b1a2b;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>POKEDEX - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="loginScreen" class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu" class="login-pokemon">
+                <h1 class="login-title">POKÉDEX</h1>
+                <p class="login-subtitle">Inicia sesión para continuar</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Ingresa tu usuario"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Ingresa tu contraseña"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+                
+                <div id="errorMessage" class="error-message"></div>
+                
+                <button type="submit" class="btn-login">
+                    <span>Iniciar Sesión</span>
+                </button>
+                
+                <div class="login-hint">
+                    💡 Usa: <strong>admin</strong> / <strong>admin</strong>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="pokedexScreen" class="pokedex-container" style="display: none;">
+        <header class="pokedex-header">
+            <h1>POKEMONES</h1>
+            <button id="logoutBtn" class="btn-logout">
+                <span>Cerrar Sesión</span>
+            </button>
+        </header>
+
+        <main class="cards-grid" id="cardsGrid">
+        </main>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
