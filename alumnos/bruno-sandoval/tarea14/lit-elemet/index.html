@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-view">
+        <login-component></login-component>
+    </div>
+    <div id="app-view" style="display: none;">
+        <header>
+            <img src="img/Demon-Slayer-Logo.png" alt="Logo demon slayer">
+            <div class="container-right">
+                <div class="search">
+                    <input id="search" type="search" placeholder="Buscar por personaje .....">
+                </div>
+                <button id="logout-button" style="margin-right: 1rem; padding: 0.5rem; background-color: var(--button-boton); color: white; border: none; border-radius: 4px; cursor: pointer;">
+                    Logout
+                </button>
+            </div>
+        </header>
+        
+        <div class="container">
+        </div>
+        
+        <footer>
+            <button id="limitButton">Cargar mas ...</button>
+        </footer>
+    </div>
+    <script src="./index.js" type="module"></script>
+</body>
+</html>

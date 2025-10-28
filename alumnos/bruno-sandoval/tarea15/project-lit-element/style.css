@@ -1,0 +1,38 @@
+:root {
+    --color-primary: #000552;
+    --color-secondary: #121a47;
+    --color-ternary: #80ccf0;
+    --color-cuarty: #5e85da;
+    --color-fifty: #002b4f;
+    --color-white: #ffffff;
+    --color-sixty: #12141b;
+    color: var(--color-white);
+}
+
+body {
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
