@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toast - Yalico Espinoza Oscar</title>
+  </head>
+  <body>
+    <h1>Mates</h1>
+
+    <div class="mates">
+      <div>
+        <input type="number" id="n1" />
+        <p>+</p>
+        <input type="number" id="n2" />
+        <p>=</p>
+        <input type="number" id="result" />
+      </div>
+      <button>Es verdad ?</button>
+    </div>
+
+    <my-toast duration="3000"></my-toast>
+
+    <script src="toast.js" type="module"></script>
+    <script type="module">
+      const toast = document.querySelector("my-toast");
+      const button = document.querySelector("button");
+
+      button.addEventListener("click", () => {
+        const n1 = parseFloat(document.getElementById("n1").value);
+        const n2 = parseFloat(document.getElementById("n2").value);
+        const result = parseFloat(document.getElementById("result").value);
+
+        if (n1 + n2 === result) {
+          toast.show("¡Correcto!", "success");
+        } else {
+          toast.show("¡Incorrecto!", "error");
+        }
+      });
+    </script>
+  </body>
+</html>
