@@ -1,0 +1,314 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Paolo",
+      "lastname": "Fernandez",
+      "age": 24,
+      "documentType": "DNI",
+      "documentNumber": "76543210",
+      "email": "paolo.fernandez@email.com",
+      "phone": "987654321",
+      "password": "s3CUr3@p4sSw0rD"
+    },
+    {
+      "id": 2,
+      "name": "Juan",
+      "lastname": "Sanchez",
+      "age": 24,
+      "documentType": "RUC",
+      "documentNumber": "1065432101",
+      "email": "juan.sanchez@email.com",
+      "phone": "978563412",
+      "password": "s3CUr3@p4sSw0rD"
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "accountType": "savings",
+      "accountName": "Cuenta Sueldo",
+      "accountNumber": "19100012345678",
+      "maskedNumber": "**** **** 5678",
+      "balance": 8450.32,
+      "currency": "PEN",
+      "isActive": true,
+      "createdAt": "2023-01-15"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "accountType": "checking",
+      "accountName": "Cuenta Libre",
+      "accountNumber": "19100087654321",
+      "maskedNumber": "**** **** 4321",
+      "balance": 2156.8,
+      "currency": "PEN",
+      "isActive": true,
+      "createdAt": "2023-03-20"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "accountType": "savings",
+      "accountName": "Cuenta Sueldo",
+      "accountNumber": "19100098765432",
+      "maskedNumber": "**** **** 5432",
+      "balance": 12350.5,
+      "currency": "PEN",
+      "isActive": true,
+      "createdAt": "2022-06-10"
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "userId": 1,
+      "accountId": 1,
+      "cardType": "credit",
+      "cardName": "VISA Platinum",
+      "cardNumber": "4532123456781234",
+      "maskedNumber": "**** **** **** 1234",
+      "creditLimit": 10000,
+      "availableCredit": 5200,
+      "usedCredit": 4800,
+      "expirationDate": "12/27",
+      "cvv": "123",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "accountId": 1,
+      "cardType": "debit",
+      "cardName": "Débito VISA",
+      "cardNumber": "4532123456785678",
+      "maskedNumber": "**** **** **** 5678",
+      "expirationDate": "08/26",
+      "cvv": "456",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "accountId": 3,
+      "cardType": "debit",
+      "cardName": "Débito VISA",
+      "cardNumber": "4532987654325432",
+      "maskedNumber": "**** **** **** 5432",
+      "expirationDate": "10/26",
+      "cvv": "789",
+      "isActive": true
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "accountId": 1,
+      "userId": 1,
+      "type": "income",
+      "category": "transfer",
+      "description": "Transferencia recibida - Juan Pérez",
+      "amount": 500,
+      "currency": "PEN",
+      "date": "2024-10-27T10:30:00",
+      "balance": 8450.32,
+      "icon": "💰"
+    },
+    {
+      "id": 2,
+      "accountId": 1,
+      "userId": 1,
+      "type": "expense",
+      "category": "shopping",
+      "description": "Compra en Plaza Vea",
+      "amount": -156.8,
+      "currency": "PEN",
+      "date": "2024-10-26T18:45:00",
+      "balance": 7950.32,
+      "icon": "🛒"
+    },
+    {
+      "id": 3,
+      "accountId": 1,
+      "userId": 1,
+      "type": "expense",
+      "category": "services",
+      "description": "Pago de servicios - Movistar",
+      "amount": -89.9,
+      "currency": "PEN",
+      "date": "2024-10-26T14:15:00",
+      "balance": 8107.12,
+      "icon": "📱"
+    },
+    {
+      "id": 4,
+      "accountId": 1,
+      "userId": 1,
+      "type": "income",
+      "category": "salary",
+      "description": "Abono de sueldo - Empresa ABC SAC",
+      "amount": 4500,
+      "currency": "PEN",
+      "date": "2024-10-25T08:00:00",
+      "balance": 8197.02,
+      "icon": "💼"
+    },
+    {
+      "id": 5,
+      "accountId": 1,
+      "userId": 1,
+      "type": "expense",
+      "category": "food",
+      "description": "Rappi - Pedido de comida",
+      "amount": -45.5,
+      "currency": "PEN",
+      "date": "2024-10-24T21:20:00",
+      "balance": 3697.02,
+      "icon": "🍕"
+    },
+    {
+      "id": 6,
+      "accountId": 1,
+      "userId": 1,
+      "type": "expense",
+      "category": "fuel",
+      "description": "Grifo Primax - Combustible",
+      "amount": -180,
+      "currency": "PEN",
+      "date": "2024-10-23T07:30:00",
+      "balance": 3742.52,
+      "icon": "⛽"
+    },
+    {
+      "id": 7,
+      "accountId": 1,
+      "userId": 1,
+      "type": "expense",
+      "category": "entertainment",
+      "description": "Netflix - Suscripción mensual",
+      "amount": -44.9,
+      "currency": "PEN",
+      "date": "2024-10-22T12:00:00",
+      "balance": 3922.52,
+      "icon": "🎬"
+    },
+    {
+      "id": 8,
+      "accountId": 1,
+      "userId": 1,
+      "type": "income",
+      "category": "refund",
+      "description": "Devolución - Amazon",
+      "amount": 120,
+      "currency": "PEN",
+      "date": "2024-10-21T16:15:00",
+      "balance": 3967.42,
+      "icon": "💰"
+    },
+    {
+      "id": 9,
+      "accountId": 1,
+      "userId": 1,
+      "type": "expense",
+      "category": "health",
+      "description": "Farmacia Universal",
+      "amount": -67.3,
+      "currency": "PEN",
+      "date": "2024-10-20T11:00:00",
+      "balance": 3847.42,
+      "icon": "🏥"
+    },
+    {
+      "id": 10,
+      "accountId": 1,
+      "userId": 1,
+      "type": "expense",
+      "category": "transport",
+      "description": "Uber - Viaje a San Isidro",
+      "amount": -28.5,
+      "currency": "PEN",
+      "date": "2024-10-19T18:45:00",
+      "balance": 3914.72,
+      "icon": "🚕"
+    },
+    {
+      "id": 11,
+      "accountId": 2,
+      "userId": 1,
+      "type": "income",
+      "category": "transfer",
+      "description": "Transferencia desde Cuenta Sueldo",
+      "amount": 1000,
+      "currency": "PEN",
+      "date": "2024-10-15T09:00:00",
+      "balance": 2156.8,
+      "icon": "💰"
+    },
+    {
+      "id": 12,
+      "accountId": 3,
+      "userId": 2,
+      "type": "income",
+      "category": "salary",
+      "description": "Abono de sueldo - Tech Company SAC",
+      "amount": 6500,
+      "currency": "PEN",
+      "date": "2024-10-25T08:00:00",
+      "balance": 12350.5,
+      "icon": "💼"
+    }
+  ],
+  "summary": [
+    {
+      "id": 1,
+      "userId": 1,
+      "accountId": 1,
+      "month": "2024-10",
+      "totalIncome": 15230,
+      "totalExpenses": 12680.5,
+      "balance": 8450.32
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "accountId": 2,
+      "month": "2024-10",
+      "totalIncome": 1000,
+      "totalExpenses": 0,
+      "balance": 2156.8
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "accountId": 3,
+      "month": "2024-10",
+      "totalIncome": 6500,
+      "totalExpenses": 850,
+      "balance": 12350.5
+    }
+  ],
+  "tokens": [
+    {
+      "id": "34d0",
+      "userId": 1,
+      "uuid": "3ca15f0b-f843-4383-a22d-d09e8c3f2b68"
+    },
+    {
+      "id": "9f91",
+      "userId": 1,
+      "token": "ee7339fb-b118-4f48-9472-18b222111933"
+    },
+    {
+      "id": "9275",
+      "userId": 1,
+      "token": "2e5803ee-e108-47ff-9c34-d0fd3bb960ee"
+    },
+    {
+      "id": "012b",
+      "userId": 1,
+      "token": "52aabb88-18ac-421e-b217-c91ec5e418cf"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+:root {
+  --border-radius: 15px;
+  --spacing: 15px;
+  --content-width: 700px;
+}
+
+body {
+  margin: 0;
+  background-color: #0F172A;
+  color: #FFF;
+  padding: 40px 100px;
+  min-width: var(--content-width);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 0;
+}
+
+.content {
+  width: var(--content-width);
+  background-color: #FFF;
+  padding: var(--spacing);
+  margin: 40px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+.content > header {
+  width: 100%;
+  height: 80px;
+  background-color: #7F7F7F;
+  border-radius: var(--border-radius);
+}
+
+.content > div {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  gap: var(--spacing);
+}
+
+.content > div > aside {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+.content > div > aside > section {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.content > div > aside > section:first-of-type {
+  height: 60%;
+  background-color: #7092BF;
+}
+
+.content > div > aside > section:last-of-type {
+  flex: 1;
+  background-color: #FE8081;
+}
+
+.content > div > main {
+  flex: 1;
+  background-color: #FFC90D;
+  border-radius: var(--border-radius);
+}
+
+.content > footer {
+  width: 100%;
+  height: 80px;
+  background-color: #C7BFE6;
+  border-radius: var(--border-radius);
+}
