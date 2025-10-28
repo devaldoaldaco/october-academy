@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import './cuenta.js';
 
 class DashboardPage extends LitElement {
   static properties = {
@@ -53,9 +54,7 @@ class DashboardPage extends LitElement {
         <button @click=${this.handleLogout}>Cerrar Sesión</button>
       </header>
       <main class="dashboard">
-        <div class="card">Panel principal</div>
-        <div class="card">Reportes</div>
-        <div class="card">Configuración</div>
+        <bank-account></bank-account>
       </main>
     `;
   }
