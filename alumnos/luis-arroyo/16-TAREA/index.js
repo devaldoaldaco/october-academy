@@ -1,0 +1,21 @@
+import { AccountComponent } from "./components/account";
+import { AppRoot } from "./components/app-root";
+import { AppRouter } from "./components/app-router";
+import { HomeComponent } from "./pages/home";
+import { ResumeComponent } from "./components/resume";
+import { Toaster } from "./components/toaster";
+import { DetailsPage } from "./pages/details";
+import { LoginPage } from "./pages/login";
+import { TarjetaComponent } from "./components/tarjetas";
+import { AppFooter } from "./components/app-footer";
+
+customElements.define("app-root", AppRoot);
+customElements.define("app-router", AppRouter);
+customElements.define("login-view", LoginPage);
+customElements.define("toaster-lit", Toaster);
+customElements.define("home-view", HomeComponent);
+customElements.define("resume-component", ResumeComponent);
+customElements.define("account-component", AccountComponent);
+customElements.define("detail-view", DetailsPage);
+customElements.define("tarjeta-component", TarjetaComponent);
+customElements.define("app-footer", AppFooter);

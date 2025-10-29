@@ -1,0 +1,84 @@
+{
+  "transactions": [
+    {
+      "id": "T001",
+      "accountId": 1,
+      "type": "gasto",
+      "date_time": "2025-10-25T18:30:00Z",
+      "detail": "Supermercado - Compra semanal",
+      "place": "Plaza Vea",
+      "category": "Alimentos",
+      "amount": -250.5
+    },
+    {
+      "id": "T002",
+      "accountId": 1,
+      "type": "ingreso",
+      "date_time": "2025-10-25T09:00:00Z",
+      "detail": "Pago de nómina mensual",
+      "source": "Planilla",
+      "category": "Salario",
+      "amount": 4500.0
+    },
+    {
+      "id": "T003",
+      "accountId": 1,
+      "type": "gasto",
+      "date_time": "2025-10-26T10:15:00Z",
+      "detail": "Suscripción anual Prime",
+      "place": "Amazon",
+      "category": "Entretenimiento",
+      "amount": -145.99
+    },
+    {
+      "id": "T004",
+      "accountId": 1,
+      "type": "ingreso",
+      "date_time": "2025-10-26T14:45:00Z",
+      "detail": "Transferencia de amigo (deuda)",
+      "source": "Plin",
+      "category": "Transferencia",
+      "amount": 50.0
+    },
+    {
+      "id": "T005",
+      "accountId": 1,
+      "type": "gasto",
+      "date_time": "2025-10-27T19:00:00Z",
+      "detail": "Cena en restaurante",
+      "place": "Central (Restaurante)",
+      "category": "Restaurantes",
+      "amount": -180.0
+    },
+    {
+      "id": "T006",
+      "accountId": 1,
+      "type": "ingreso",
+      "date_time": "2025-10-27T12:00:00Z",
+      "detail": "Reembolso por devolución",
+      "source": "Transferencia Bancaria",
+      "category": "Reembolso",
+      "amount": 75.2
+    },
+    {
+      "id": "T007",
+      "accountId": 1,
+      "type": "gasto",
+      "date_time": "2025-10-27T08:00:00Z",
+      "detail": "Pasaje diario",
+      "place": "Metropolitano",
+      "category": "Transporte",
+      "amount": -3.5
+    },
+    {
+      "id": "T008",
+      "accountId": 1,
+      "type": "gasto",
+      "date_time": "2025-10-27T17:30:00Z",
+      "detail": "Consulta médica de rutina",
+      "place": "Clínica San Pablo",
+      "category": "Salud",
+      "amount": -80.0
+    }
+  ]
+}
