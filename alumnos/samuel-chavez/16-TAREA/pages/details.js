@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit";
-import "../components/detailsCardTarjeta";
-import "../components/detailsAcount";
+import "../components/details-target";
+import "../components/details-acount";
 import { productosBBVA } from "../productsBBVA";
 export class Details extends LitElement {
   static properties = {

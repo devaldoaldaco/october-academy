@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit";
-import "../components/cardDashboard";
+import "../components/card-dashboard";
 import "../components/navigation";
 import { productosBBVA } from "../productsBBVA";
 export class Dashboard extends LitElement {

@@ -60,4 +60,4 @@ export class AppRoot extends LitElement {
   }
 }
 
-window.customElements.define("view-app", AppRoot);
+window.customElements.define("app-root", AppRoot);
